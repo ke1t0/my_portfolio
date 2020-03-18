@@ -4,5 +4,8 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     sessions: "users/sessions"
   }
-  
+  resources :users
+  resources :posts do
+    resource :likes, only: [:create, :destroy]
+  end
 end

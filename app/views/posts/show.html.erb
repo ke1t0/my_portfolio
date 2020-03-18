@@ -1,0 +1,7 @@
+<h1>投稿詳細</h1>
+
+<h4>
+  <%= link_to @post.user.name, user_path(@post.user.id) %>
+  <%= @post.created_at.to_s(:datetime_jp) %>
+</h4>
+<h4><%= @post.body %></h4>

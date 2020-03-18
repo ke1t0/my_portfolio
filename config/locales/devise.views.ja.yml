@@ -6,11 +6,15 @@ ja:
           attributes:
             name:
               blank: "が入力されていません。"
+              too_long: "が長すぎます"
             email:
               blank: "が入力されていません。"
+              invalid: "が正しくありません"
+              too_long: "が長すぎます"
             password:
+              too_long: "が長すぎます"
               blank: "が入力されていません。"
-        message:
+        message: #自分で追加したモデルにかける
           attributes:
             title:
               blank: "が入力されていません。"
@@ -19,6 +23,7 @@ ja:
     attributes:
       user:
         current_password: "現在のパスワード"
+        name: "名前"
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "確認用パスワード"

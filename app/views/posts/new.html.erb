@@ -1,0 +1,8 @@
+<h1>新規投稿</h1>
+
+  <%= form_with model: @post do |f| %>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.submit "投稿" %>
+  <% end %>

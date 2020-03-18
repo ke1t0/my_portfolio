@@ -1,0 +1,11 @@
+<h1>ユーザー詳細</h1>
+
+<div>
+  <h4><%= @user.name %></h4>
+  <h4>
+    <% @posts.each do |post| %>
+      <hr>
+      <p><%= link_to post.body, post_path(post.id) %></p>  
+    <% end %>
+  </h4>
+</div>

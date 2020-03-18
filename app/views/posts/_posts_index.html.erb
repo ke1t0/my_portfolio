@@ -1,0 +1,11 @@
+<% posts.each do |post| %>
+  <hr>
+  <p>
+    <%= link_to post.user.name, user_path(post.user.id) %>
+    <%= post.created_at.to_s(:datetime_jp) %>
+  </p>
+  <p><%= link_to post.body, post_path(post) %></p>
+  <!--<div id="post_like_<%= post.id %>">
+    <%= render "likes/like", post: post %>
+  </div>-->
+<% end %>
