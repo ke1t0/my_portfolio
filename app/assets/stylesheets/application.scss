@@ -1,0 +1,259 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "home";
+@import "posts";
+@import "users";
+$sp: 575px; //max
+$tab: 768px; //min
+$pc: 1024px; //min
+
+@mixin sp {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}
+
+@mixin tab {
+  @media (min-width: ($tab)) {
+    @content;
+  }
+}
+
+@mixin pc {
+  @media (min-width: ($pc)) {
+    @content;
+  }
+}
+
+html {
+  font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  font-size: 62.5%;
+}
+
+body,h1,h2,h3,h4,h5,h6,p {
+  padding: 0;
+  margin: 0;
+}
+
+// body {
+//   // width: 100%; 必要かどうか
+// }
+
+.partition {
+  margin: 0.5rem 0;
+}
+
+// .container {
+//   @include tab {
+//     height: 64rem;
+//   }
+//   @include sp {
+//     height: 50rem;
+//     margin-top: 2rem;
+//   }
+//   height: 72rem;
+//   color: #333333;
+//   background-color: #fdfaeb;
+//   text-align: center;
+// }
+
+// .header-nav {
+//   @include tab {
+//     border-top: solid 0.2rem #5ba136;
+//   }
+//   @include sp {
+//     height: 3rem;
+//     line-height: 3rem;
+//   }
+//   border-top: solid 0.4rem #5ba136;
+// }
+
+// .u-title {
+//   @include tab {
+//     height: 4rem;
+//     line-height: 5rem;
+//   }
+//   @include sp {
+//     width: 8rem;
+//     font-size: 1.4rem;
+//     // height: 2rem;
+//     // line-height: 3rem;
+//     margin: 0 0 0 2rem;
+//   }
+
+//   width: 15rem;
+//   height: 6rem;
+//   margin: 0 0 0 5rem;
+//   text-align: center;
+//   line-height: 7rem;
+// }
+
+// .nav-right {
+//   margin-left: auto;
+// }
+
+// .nav-ul {
+//   @include tab {
+//     padding-right: 1rem;
+//     height: 4rem;
+//     line-height: 5rem;
+//   }
+//   @include sp {
+//     padding-right: 0.5rem;
+//     // height: 2rem;
+//     // line-height: 3rem;
+//   }
+//   padding-right: 6rem;
+//   height: 6rem;
+//   line-height: 7rem;
+// }
+
+// .nav-info {
+//   @include tab {
+//     font-size: 0.1px;
+//     margin-left: 1.4rem;
+//   }
+//   @include sp {
+//     font-size: 1rem;
+//     margin-left: 0.5rem;
+//     padding: 0.2rem;
+//     border: solid 1px #5ba136;
+//   }
+//   font-size: 1.5rem;
+//   margin-left: 5rem;
+//   color: #333333;
+//   border-radius: 15px;
+//   padding: 0.7rem;
+//   border: solid 0.2rem #5ba136;
+//   &:hover {
+//     border: solid 0.2rem #fff;
+//     background-color: #5ba136;
+//     color: #fff;
+//     text-decoration: none;
+//   }
+// }
+
+
+.text {
+  @include sp {
+    padding-bottom: 3rem;
+  }
+  @include tab {
+    padding-bottom: 5rem;
+  }
+  @include pc {
+    padding-bottom: 10rem;
+  }
+  background-color: #fffcf1;
+}
+
+
+
+
+// ここから新しくbootstrap4適用で書いていく
+
+.navbar {
+  background-color: white;
+  .navbar-toggler {
+    font-size: 2rem;
+    color: #28a746de;
+  }
+  border-bottom: 1px solid #28a746de;
+
+  span {
+    .search-form {
+      @include pc {
+        margin-left: 1rem;
+        margin-top: 0.2rem;
+      }
+      input {
+        @include pc {
+          font-size: 1.2rem;
+          line-height: 2.4rem;
+          border: solid 2px #28a746de;
+        }
+        border: solid 1px #28a746de;
+        border-radius: 12px;
+        &:focus {
+          @include pc {
+            border: solid 2px #28a746de;
+          }
+          border-radius: 12px;
+        }
+      }
+    }
+    .search-user-btn {
+      padding: 0.15rem 0.3;
+      color: #28a746de;
+      &:hover {
+        background-color: #28a746de;
+        color: white;
+      }
+      @include pc {
+        margin-right: 4.8rem;
+      }
+    }
+  }
+}
+
+.hamburger-icon {
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30'
+    xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(51, 51, 51, 1)'
+    stroke-width='3' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
+}
+
+.title {
+  @include tab {
+    font-size: 2rem;
+  }
+  @include pc {
+    padding: 1rem 0;
+    font-size: 3rem;
+  }
+  color: #333333;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.nav-info {
+  @include sp {
+    font-size: 1rem;
+  }
+  @include pc {
+    border: solid 0.2rem #28a746de;
+    border-radius: 15px;
+    padding: 0.7rem;
+    margin-left: 3rem;
+    &:hover {
+      background-color: #28a746de;
+      color: #fff;
+    text-decoration: none;
+    }
+    display: flex;
+  }
+  color: #28a746de;
+  font-size: 1.2rem;
+}
+
+.login-btn {
+  @include pc {
+    margin-right: 10rem;
+  }
+}

@@ -1,7 +1,11 @@
-<h1>投稿詳細</h1>
-
-<h4>
-  <%= link_to @post.user.name, user_path(@post.user.id) %>
+<div class="post-show">
+  <h2>
+    <%= link_to @post.user.name, user_path(@post.user.id), class: "link-format" %>
+  </h2>
+  <p><%= @post.body %></p>
   <%= @post.created_at.to_s(:datetime_jp) %>
-</h4>
-<h4><%= @post.body %></h4>
+  <div id="show_like_<%= @post.id %>">
+    <%= render "likes/like", post: @post %>
+    <%= link_to "削除", post_path(@post), class: "delete-post-btn", method: :delete %>
+  </div>
+</div>

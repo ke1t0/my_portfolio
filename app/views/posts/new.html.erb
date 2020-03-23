@@ -1,8 +1,50 @@
-<h1>新規投稿</h1>
+<%# <h1>新規投稿</h1> %>
 
-  <%= form_with model: @post do |f| %>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-    <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.submit "投稿" %>
-  <% end %>
+<%# 改行や行空けなどを反映させたい %>
+  <div class="row">
+    <div class="col-sm-6 post-new">
+      <%= form_with model: @post do |f| %>
+    
+        <%= f.text_area :body, class: "post-new-form" %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <p><%= f.file_field :image, class: "post-image" %></p>
+        <p><%= f.submit "投稿", class: "btn post-btn" %></p>
+      <% end %>
+    </div>
+    <div class="col-sm-4 post-example">
+      <div class="post-example-box">
+        <h4>例1</h4>
+        <p>
+          ポジションをどっちにするか迷っている方へ<br>
+          <br>
+          後衛の楽しさ<br>
+          ✅試合展開をコントロールできる<br>
+          ✅前衛よりも多く球を打てる<br>
+          ✅前衛の逆を突いた時<br>
+          <br>
+          前衛の楽しさ<br>
+          ✅アグレッシブなプレー<br>
+          ✅得点源になれる<br>
+          ✅相手後衛を惑わす事ができる<br>
+          <br>
+          参考になれば嬉しいです！
+        </p>
+        <br>
+      </div>
+      <div class="d-none d-sm-block">
+        <hr class="partition">
+        <h4>例2</h4>
+        <p>
+          ○月○○日(○曜日)に東京都有明テニスの森<br>
+          公園1コートで13時〜16時までソフトテニスを<br>
+          したいと思います！現在2名しか人がいないので募集します！<br>
+          <br>
+          レベル感や年齢、性別は問いません！楽しく運動しませか？<br>
+          興味のある方コメントをお待ちしております！
+        </p>
+      </div>
+    </div>
+    <div class="offset-sm-2"></div>
+  </div>
+
+  

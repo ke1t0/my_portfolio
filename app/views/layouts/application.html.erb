@@ -9,27 +9,50 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Noto+Sans+JP:400,700" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <% if user_signed_in? %>
-      <ul>
-        <li><%= link_to "投稿する", new_post_path %></li>
-        <li><%= link_to "投稿一覧", posts_path %></li>
-        <li><%= link_to "マイページ", edit_user_registration_path %></li>
-        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-      </ul>
-    <% else %>
-      <ul>
-        <li><%= link_to "新規登録", new_user_registration_path %></li>
-        <li><%= link_to "ログイン", new_user_session_path %></li>
-      </ul>
-    <% end %>
+    <div class="text">
+      <nav class="navbar navbar-expand-lg">
+        <%= link_to "タイトル", root_path, class: "title" %>
+        <button class="navbar-toggler hamburger-icon" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <% if user_signed_in? %>
+              <li class="nav-item"><%= link_to "新規投稿", new_post_path, class: "nav-info" %></li>
+              <li class="nav-item"><%= link_to "投稿一覧", posts_path, class: "nav-info" %></li>
+              <li class="nav-item"><%= link_to "マイページ", user_path(current_user), class: "nav-info" %></li>
+              <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, class: "nav-info", method: :delete %></li>
+              <%# ここに検索フォームを作る %>
+              <span>
+                <%= form_tag searches_user_path, method: :get, class: "search-form" do %>
+                <%= text_field_tag :search %>
+                <%= submit_tag '検索', :name => nil, class: "btn btn-outline-warning search-user-btn" %>
+              <% end %>
+              </span>
+            <% else %>
+              <li class="nav-item"><%= link_to "新規登録", new_user_registration_path, class: "nav-info" %></li>
+              <li class="nav-item"><%= link_to "ログイン", new_user_session_path, class: "nav-info login-btn" %></li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container-fluid">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= yield %>
+      </div>
+    </div>
 
 
-
-    <%= yield %>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script ript src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"        crossorigin="anonymous"></script>
   </body>
 </html>

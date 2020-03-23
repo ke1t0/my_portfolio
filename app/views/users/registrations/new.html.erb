@@ -14,6 +14,16 @@
   </div>
 
   <div class="field">
+    <%= f.label :introduction, "自己紹介" %><br />
+    <%= f.text_area :introduction, placeholder: "後からでも設定できます" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :image, "画像" %>
+    <%= f.file_field :image, placeholder: "後からでも設定できます" %>
+  </div>
+
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> 文字以上)</em>

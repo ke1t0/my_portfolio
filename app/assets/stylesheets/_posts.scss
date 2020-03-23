@@ -1,0 +1,297 @@
+$sp: 575px; //max
+$tab: 768px; //min
+$pc: 1024px; //min
+
+@mixin sp {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}
+
+@mixin tab {
+  @media (min-width: ($tab)) {
+    @content;
+  }
+}
+
+@mixin pc {
+  @media (min-width: ($pc)) {
+    @content;
+  }
+}
+
+// 新規投稿
+
+// .post-new {
+//   @include tab {
+//     width: 32rem;
+//     height: 40rem;
+//     font-size: 1rem;
+//   }
+//   @include sp {
+//     width: 24rem;
+//     height: 30rem;
+//     font-size: 1rem;
+//   }
+//   width: 48rem;
+//   height: 48rem;
+//   border: solid 1px #5ba136;
+//   resize: none;
+//   font-size: 1.4rem;
+// }
+
+// 投稿一覧
+
+// .link-format {
+//   color: #333333;
+//     &:hover {
+//       text-decoration: none;
+//     }
+// }
+
+// .post-index-user-name {
+  // @include tab {
+  //   font-size: 1.2rem;
+  //   margin-bottom: 0.3rem;
+  // }
+  // @include sp {
+  //   font-size: 1rem;
+  // }
+  // font-size: 1.6rem;
+// }
+
+// .post-index-user-body {
+//   @include tab {
+//     font-size: 1rem;
+//     margin-bottom: 0;
+//   }
+//   @include sp {
+//     font-size: 1rem;
+//   }
+//   font-size: 1.2rem;
+// }
+
+// .like-icon {
+//   @include tab {
+//     font-size: 1rem;
+//   }
+//   @include sp {
+//     font-size: 1rem;
+//   }
+//   font-size: 1.2rem;
+// }
+
+// .pagination {
+//   justify-content: center;
+//   font-size: 1.2rem;
+//   li {
+//     a {
+//       border: none;
+//       color: #696969;
+//       &:hover {
+//         border-radius: 15px;
+//       }
+//     }
+//   }
+//   .active {
+//     a {
+//       background-color: #93c9ff;
+//       border-radius: 15px;
+//     }
+//   }
+// }
+
+// .change-profile {
+//   a {
+//     font-size: 5px;
+//     padding: 5px;
+//     margin: 5px;
+//     color: red;
+//     border: solid 1px #5ba136;
+//   }
+// }
+
+
+// ここからbootstrap4
+
+// 新規投稿
+
+.post-new {
+  @include tab {
+    // height: 58rem;
+  }
+  text-align: center;
+  .post-new-form {
+    @include sp {
+      width: 24rem;
+      height: 20rem;
+
+    }
+    width: 32rem;
+    height: 40rem;
+    resize: none;
+    border: solid 1px #5ba13680;
+  }
+
+  .post-image {
+    border: solid 1px #5ba13680;
+    margin-top: 0.6rem;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .post-btn {
+    border: solid 1px #5ba13680;
+    font-size: 1.6rem;
+    font-weight: bold;
+    width: 10rem;
+    color: #333333;
+  }
+}
+
+.post-example {
+  @include tab {
+    margin-left: 6rem;
+  }
+  @include pc {
+    font-size: 1.2rem;
+  }
+  .post-example-box {
+    @include sp {
+      width: 50%;
+      margin: 0 auto;
+    }
+  }
+  opacity: 0.6;
+}
+
+
+// 投稿一覧
+
+.link-format {
+  color: #333333;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.post-index {
+  @include pc {
+    padding: 0 4rem;
+  }
+  .like-icon {
+    @include tab {
+      font-size: 1.2rem;
+    }
+  }
+  .delete-post-btn {
+    @include pc {
+      font-size: 1.4rem;
+    }
+    font-weight: bold;
+    color: #5ba13680;
+    margin-left: 1rem;
+  }
+
+  .pagination {
+    // justify-content: center; どっちにするか未定
+    @include pc {
+      font-size: 1.2rem;
+    }
+    li {
+      a {
+        border: none;
+        color: #28a746de;
+        &:hover {
+          border-radius: 15px;
+        }
+      }
+    }
+    .active {
+      a {
+        background-color: #28a746de;
+        border-radius: 15px;
+      }
+    }
+  }
+  
+}
+
+.post-index-user-name {
+  @include sp {
+    font-size: 1.1rem;
+    margin-bottom: 0;
+  }
+  @include tab {
+    font-size: 1.2rem;
+  }
+  @include pc {
+    font-size: 1.6rem;
+  }
+  
+}
+
+.post-index-user-body {
+  @include tab {
+    font-size: 1.1rem;
+  }
+  @include pc {
+    font-size: 1.4rem;
+  }
+  margin-bottom: 0.2rem;
+}
+
+// .like-icon {
+    
+//   font-size: 3rem;
+// }
+
+.datetime {
+  @include pc {
+    font-size: 1.4rem;
+  }
+  opacity: 0.7;
+  margin-bottom: 0;
+}
+
+
+
+
+
+// 投稿詳細
+
+.post-show {
+  @include sp {
+    width: 70%;
+    margin: 0 auto;
+  }
+  @include tab {
+    width: 70%;
+    margin: 0 auto;
+    font-size: 1.2rem;
+  }
+  @include pc {
+    font-size: 1.4rem;
+  }
+  .like-icon {
+    @include sp {
+      font-size: 1.2rem;
+    }
+    @include tab {
+      font-size: 1.6rem;
+    }
+  }
+  .delete-post-btn {
+    @include sp {
+      font-size: 1.2rem;
+    }
+    @include tab {
+      font-size: 1.6rem;
+    }
+    margin-left: 2rem;
+    font-weight: bold;
+    color: #5ba13680;
+  }
+
+}

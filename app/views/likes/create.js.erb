@@ -1,0 +1,3 @@
+<%# 一番元となるindex.html.erbの"@tweet"を使うこと %>
+$('#index_like_<%= @post.id %>').html("<%= escape_javascript(render partial: 'likes/like', locals: {post: @post}) %>")
+$('#show_like_<%= @post.id %>').html("<%= escape_javascript(render partial: 'likes/like', locals: {post: @post}) %>")

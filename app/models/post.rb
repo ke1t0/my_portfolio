@@ -4,4 +4,12 @@ class Post < ApplicationRecord
 
   belongs_to :user
   has_many :likes, dependent: :destroy
+
+  def self.search(search)
+    if search
+      Post.where(['body LIKE ?', "%#{search}%"])
+    else
+      all
+    end
+  end
 end

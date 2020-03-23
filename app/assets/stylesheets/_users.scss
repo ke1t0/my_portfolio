@@ -1,0 +1,68 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+$sp: 575px; //max
+$tab: 768px; //min
+$pc: 1024px; //min
+
+@mixin sp {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}
+
+@mixin tab {
+  @media (min-width: ($tab)) {
+    @content;
+  }
+}
+
+@mixin pc {
+  @media (min-width: ($pc)) {
+    @content;
+  }
+}
+
+// ユーザー詳細
+
+.user-profile {
+  @include sp {
+    width: 100%;
+  }
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+  .edit-profile-btn {
+    color: #28a746de;
+    border: solid 0.1rem #28a746de;
+    border-radius: 10px;
+    padding: 0.5rem 0.7rem;
+    &:hover {
+      background-color: #28a746de;
+      color: #fff;
+    }
+  }
+
+  .nav-tabs {
+    margin-top: 1.2rem;
+    background-color: #fffcf1;
+    .nav-link {
+      color: #000;
+    }
+    .nav-link.active {
+      color: #28a746de;
+    }
+  }
+
+  .tab-content {
+    .tab-pane h4 {
+      padding-top: 3rem;
+    }
+    .tab-pane p {
+      @include sp {
+        margin: 0.2rem 0;
+      }
+      margin: 0.5rem 0;
+    }
+  }
+}

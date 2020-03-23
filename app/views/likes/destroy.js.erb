@@ -1,0 +1,2 @@
+$('#index_like_<%= @post.id %>').html("<%= escape_javascript(render 'likes/like', post: @post) %>")
+$('#show_like_<%= @post.id %>').html("<%= escape_javascript(render 'likes/like', post: @post) %>")

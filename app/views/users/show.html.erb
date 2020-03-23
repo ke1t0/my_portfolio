@@ -1,11 +1,63 @@
-<h1>ユーザー詳細</h1>
-
-<div>
+<div class="user-profile">
   <h4><%= @user.name %></h4>
-  <h4>
-    <% @posts.each do |post| %>
-      <hr>
-      <p><%= link_to post.body, post_path(post.id) %></p>  
-    <% end %>
-  </h4>
+  <img src="<%= @user.image %>">
+    <hr>
+  <% if @user.introduction.present? %>
+    <h5>
+      <%= simple_format(@user.introduction) %>
+    </h5>
+    <hr>
+  <% else %>
+    <h5>自己紹介はまだ記入されていません</h5>
+    <hr>
+  <% end %>
+  <% if current_user == @user %>
+    <h5>
+      <%= link_to "プロフィール変更", edit_user_registration_path, class: "link-format edit-profile-btn" %>
+    </h5>
+  <% end %>
+
+  <ul class="nav nav-tabs nav-justified">
+    <li class="nav-item">
+      <a href="#posts" class="nav-link active" data-toggle="tab">投稿一覧</a>
+    </li>
+    <li class="nav-item">
+      <a href="#likes" class="nav-link" data-toggle="tab">いいね一覧</a>
+    </li>
+    <li class="nav-item">
+      <a href="#comments" class="nav-link" data-toggle="tab">コメント</a>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="posts" class="tab-pane active">
+      <% if @posts.present? %>
+        <% @posts.each do |post| %>
+          <p><%= link_to post.body, post_path(post), class: "link-format" %></p>
+          <hr class="partition">
+        <% end %>
+      <% else %>
+        <h4>投稿はありません</h4>
+      <% end %>
+    </div>
+
+    <div id="likes" class="tab-pane">
+      <% if @like_posts.present? %>
+        <% @like_posts.each do |like| %>
+          <p><%= link_to like.post.body, post_path(like.post), class: "link-format" %></p>
+          <hr class="partition">
+        <% end %>
+      <% else %>
+        <h4>いいねはありません</h4>
+      <% end %>
+    </div>
+
+    <div id="comments" class="tab-pane">
+      <% if present? %>
+        <h4>コメントは実装されていません</h4>
+      <% else %>
+        <h4>コメントはありません</h4>
+      <% end %>
+    </div>
+  </div>
 </div>

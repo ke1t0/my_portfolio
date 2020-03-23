@@ -1,11 +1,25 @@
-<% posts.each do |post| %>
+<div class="post-index">
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <%= paginate @posts %>
+  <% posts.each do |post| %>
+    <hr class="partition">
+    <h2 class="post-index-user-name">
+      <%= link_to post.user.name, user_path(post.user.id), class: "link-format" %>
+    </h2>
+    <p class="post-index-user-body">
+      <%= link_to post.body, post_path(post), class: "link-format" %>
+    </p>
+    <p class="datetime">
+      <%= post.created_at.to_s(:datetime_jp) %>
+    </p>
+    <div id="index_like_<%= post.id %>">
+      <%= render "likes/like", post: post %>
+      <% if current_user == post.user %>
+        <%= link_to "削除", post_path(post), class: "delete-post-btn", method: :delete, data: { confirm: '削除しますか？' } %>
+      <% end %>
+    </div>
+  <% end %>
   <hr>
-  <p>
-    <%= link_to post.user.name, user_path(post.user.id) %>
-    <%= post.created_at.to_s(:datetime_jp) %>
-  </p>
-  <p><%= link_to post.body, post_path(post) %></p>
-  <!--<div id="post_like_<%= post.id %>">
-    <%= render "likes/like", post: post %>
-  </div>-->
-<% end %>
+  <%= paginate @posts %>
+</div>

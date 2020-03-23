@@ -1,0 +1,20 @@
+{
+  "liveSassCompile.settings.formats": [ //Sassの出力内容の設定
+    {
+      "format": "expanded", //nested、compact、compressedのどれかを選ぶ
+      "extensionName": ".css", //style.cssとして出力
+      "savePath": "/css" //cssフォルダの中にstyle.cssを出力
+    }
+  ],
+  "liveSassCompile.settings.excludeList": [ //対象外とするフォルダを指定
+    "**/node_modules/**",
+    ".vscode/**",
+    ".history/**"
+  ],
+  "liveSassCompile.settings.autoprefix": [ //ベンダープレフィックスの指定
+    "last 2 versions", //最新のブラウザ２バージョンまで
+    "ie >= 11", //ie11以上
+    "Android >= 4", //Andoroid４以上
+    "ios_saf >= 8" //iosのsafari８以上
+  ]
+}

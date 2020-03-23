@@ -1,0 +1,93 @@
+$sp: 575px; //max
+$tab: 768px; //min
+$pc: 1024px; //min
+
+@mixin sp {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}
+
+@mixin tab {
+  @media (min-width: ($tab)) {
+    @content;
+  }
+}
+
+@mixin pc {
+  @media (min-width: ($pc)) {
+    @content;
+  }
+}
+
+
+.edit-profile {
+  text-align: center;
+  .post-btn {
+    @include sp {
+      font-size: 1.6rem;
+    }
+    border: solid 2px #28a746de;
+    border-radius: 15px;
+    background-color: #fffcf1;
+    color: #28a746de;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    width: 10rem;
+    &:hover {
+      background-color: #28a746de;
+      color: white;
+      font-weight: bold;
+    }
+  }
+
+  .delete-user-btn {
+    font-size: 1.2rem;
+    border: none;
+    border-top: double 3px rgb(255, 100, 100);
+    border-bottom: double 3px rgb(255, 100, 100);
+    background-color: #fffcf1;
+  }
+}
+
+.edit-profile-form {
+  @include pc {
+    font-size: 1.4rem;
+  }
+  font-size: 1.2rem;
+
+  input, textarea {
+    border: solid 1px #28a746de;
+  }
+
+  input {
+    @include pc {
+      width: 30rem;
+    }
+    width: 20rem;
+  }
+
+  textarea {
+    @include sp {
+      width: 20rem;
+      height: 10rem;
+    }
+    @include tab {
+      width: 32rem;
+      height: 16rem;
+    }
+    @include pc {
+      width: 50rem;
+      height: 30rem;
+    }
+    resize: none;
+  }
+
+  .edit-image {
+    &:hover {
+      cursor: pointer;
+    }
+    background-color: white;
+  }
+}

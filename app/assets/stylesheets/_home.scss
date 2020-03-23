@@ -1,0 +1,42 @@
+$sp: 575px; //max
+$tab: 768px; //min
+$pc: 1024px; //min
+
+@mixin pc {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}
+
+@mixin tab {
+  @media (min-width: ($tab)) {
+    @content;
+  }
+}
+
+@mixin pc {
+  @media (min-width: ($pc)) {
+    @content;
+  }
+}
+
+.home-page {
+  text-align: center;
+  @include pc {
+    height: 58rem;
+  }
+  .home-title {
+    @include pc {
+      font-size: 4rem;
+    }
+  }
+
+  .home-info {
+    @include pc {
+      font-size: 2.4rem;
+      margin-top: 8rem;
+      letter-spacing: 0.8rem;
+      line-height: 8rem;
+    }
+  }
+}

@@ -1,12 +1,12 @@
 <% if current_user.already_liked?(post) %>
-  <%= link_to post_likes_path(post), method: :delete, remote: :true do %>
-    <i class="fa fa-heart">
+  <%= link_to post_likes_path(post.id), method: :delete, class:"like-icon", remote: true do %>
+    <i class="fa fa-heart" style="color: red">
       <%= post.likes.count %>
     </i>
   <% end %>
 <% else %>
-  <%= link_to post_likes_path(post), method: :post, remote: true do %>
-    <i class="fa fa-heart">
+  <%= link_to post_likes_path(post.id), method: :post, class:"like-icon", remote: true do %>
+    <i class="fa fa-heart" style="color: #c0c0c0">
       <%= post.likes.count %>
     </i>
   <% end %>
