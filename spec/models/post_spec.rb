@@ -6,39 +6,25 @@ RSpec.describe Post, type: :model do
   end
 
   it "is valid with a body" do
-    post = @user.posts.build(
-      body: "t"*1000
-    )
+    post = FactoryBot.create(:post, body: "a"*1000)
     expect(post).to be_valid
   end
 
   # user_idにバリデーションをかけているけど通ってしまう
   it "is invalid without a user_id" do
-    user = User.create(
-      name: "test user",
-      email: "example@mail.com",
-      password: "password"
-    )
-    post1 = user.posts.build(
-      body: "test example",
-      user_id: nil
-    )
+    post1 = FactoryBot.create(:post)
     expect(post1).to be_valid
   end
 
   context "invalid a body" do
     it "is invalid without a body" do
-      post = @user.posts.build(
-        body: nil
-      )
+      post = FactoryBot.build(:post, body: nil)
       post.valid?
       expect(post.errors[:body]).to include("を入力してください")
     end
   
     it "is invalid a body too long" do
-      post = @user.posts.build(
-        body: "t"*1001
-      )
+      post = FactoryBot.build(:post, body: "a"*1001)
       post.valid?
       expect(post.errors[:body]).to include("は1000文字以内で入力してください")
     end

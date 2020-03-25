@@ -24,15 +24,28 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
-              <li class="nav-item"><%= link_to "新規投稿", new_post_path, class: "nav-info" %></li>
-              <li class="nav-item"><%= link_to "投稿一覧", posts_path, class: "nav-info" %></li>
-              <li class="nav-item"><%= link_to "マイページ", user_path(current_user), class: "nav-info" %></li>
-              <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, class: "nav-info", method: :delete %></li>
+              <% if current_user.admin == true %>
+                <li>
+                  <%= link_to "管理者画面", users_path, class: "nav-info" %>
+              </li>
+              <% end %>
+              <li class="nav-item">
+                <%= link_to "新規投稿", new_post_path, class: "nav-info" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "投稿一覧", posts_path, class: "nav-info" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "マイページ", user_path(current_user), class: "nav-info" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "ログアウト", destroy_user_session_path, class: "nav-info", method: :delete %>
+              </li>
               <%# ここに検索フォームを作る %>
               <span>
-                <%= form_tag searches_user_path, method: :get, class: "search-form" do %>
-                <%= text_field_tag :search %>
-                <%= submit_tag '検索', :name => nil, class: "btn btn-outline-warning search-user-btn" %>
+                <%= form_with url: searches_user_path, method: :get, local: true, class: "search-form" do |f| %>
+                <%= f.text_field :search %>
+                <%= f.submit '検索', class: "btn btn-outline-warning search-user-btn" %>
               <% end %>
               </span>
             <% else %>

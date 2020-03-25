@@ -8,6 +8,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comments = @post.comments
+    @comment = Comment.new
   end
 
   def new
@@ -17,9 +19,9 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
+      flash[:notice] = '投稿しました'
       redirect_to action: 'index'
     else
-      flash[:danger] = '失敗' #表示できていない
       render :new
     end
   end

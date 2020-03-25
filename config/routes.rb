@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users
   resources :posts do
     resource :likes, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
   end
 
   get 'searches/user'

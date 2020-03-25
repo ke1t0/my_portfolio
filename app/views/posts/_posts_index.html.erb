@@ -7,18 +7,19 @@
     <h2 class="post-index-user-name">
       <%= link_to post.user.name, user_path(post.user.id), class: "link-format" %>
     </h2>
-    <p class="post-index-user-body">
-      <%= link_to post.body, post_path(post), class: "link-format" %>
-    </p>
+    <div class="post-index-user-body">
+      <%= simple_format(post.body.truncate(100)) %>
+      <%= link_to "詳細", post_path(post) %>
+    </div>
     <p class="datetime">
       <%= post.created_at.to_s(:datetime_jp) %>
     </p>
     <div id="index_like_<%= post.id %>">
       <%= render "likes/like", post: post %>
-      <% if current_user == post.user %>
-        <%= link_to "削除", post_path(post), class: "delete-post-btn", method: :delete, data: { confirm: '削除しますか？' } %>
-      <% end %>
     </div>
+    <% if current_user == post.user %>
+      <%= link_to "削除", post_path(post), class: "delete-post-btn", method: :delete, data: { confirm: '削除しますか？' } %>
+    <% end %>
   <% end %>
   <hr>
   <%= paginate @posts %>

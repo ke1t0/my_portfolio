@@ -1,0 +1,41 @@
+$sp: 575px; //max
+$tab: 768px; //min
+$pc: 1024px; //min
+
+@mixin sp {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}
+
+@mixin tab {
+  @media (min-width: ($tab)) {
+    @content;
+  }
+}
+
+@mixin pc {
+  @media (min-width: ($pc)) {
+    @content;
+  }
+}
+
+.new_user {
+  margin-bottom: 2rem;
+  .field {
+    padding-top: 1rem;
+    .check-btn {
+      margin-top: 1rem;
+    }
+    .check-label {
+      font-size: 1.2rem;
+    }
+  }
+
+  .password-reset-form {
+    margin-bottom: 1rem;
+    @include pc {
+      margin-bottom: 2rem;
+    }
+  }
+}

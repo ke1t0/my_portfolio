@@ -1,6 +1,10 @@
 <div class="user-profile">
   <h4><%= @user.name %></h4>
-  <img src="<%= @user.image %>">
+  <% if @user.image.present? %>
+    <img src="<%= @user.image %>">
+  <% else %>
+    <h5>画像未設定</h5>
+  <% end %>
     <hr>
   <% if @user.introduction.present? %>
     <h5>

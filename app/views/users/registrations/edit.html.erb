@@ -21,7 +21,9 @@
 
     <div class="edit-profile-form">
       <%= f.label :image, "画像(変更がなければ飛ばしてください)" %>
-      <p><%= f.file_field :image, autocomplete: "image", class: "edit-image" %></p>
+      <p>
+        <%= f.file_field :image, class: "edit-image" %>
+      </p>
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -33,7 +35,7 @@
       <%= f.password_field :password, autocomplete:   "new-password" %>
       <% if @minimum_password_length %>
           <br />
-        <em><%= @minimum_password_length %> 文字以上</em>
+        <em>(<%= @minimum_password_length %> 文字以上)</em>
       <% end %>
     </div>
 

@@ -66,3 +66,35 @@ $pc: 1024px; //min
     }
   }
 }
+
+// 管理者ページ
+
+.admin-page {
+  text-align: center;
+  .users-table {
+    margin: 0 auto;
+    th, td {
+      border: solid 1px black;
+      text-align: center;
+    }
+    th {
+      @include pc {
+        font-size: 1.4rem;
+      }
+      background-color: #28a746de;
+      color: rgb(240, 240, 240);
+      &:first-child {
+        padding: 0 1rem;
+      }
+    }
+    td {
+      padding: 0 1rem;
+      @include pc {
+        font-size: 1.4rem;
+      }
+    }
+    td:nth-child(2) {
+      text-align: left;
+    }
+  }
+}

@@ -17,6 +17,11 @@
 @import "home";
 @import "posts";
 @import "users";
+@import "login";
+@import "search";
+@import "edit_profile";
+@import "edit_password";
+
 $sp: 575px; //max
 $tab: 768px; //min
 $pc: 1024px; //min
@@ -49,12 +54,61 @@ body,h1,h2,h3,h4,h5,h6,p {
   margin: 0;
 }
 
+#error_explanation {
+  color: red;
+  ul {
+    list-style: none;
+    li {
+      @include tab {
+        font-size: 1.2rem;
+      }
+      @include pc {
+        font-size: 1.6rem;
+      }
+    }
+  }
+}
+
+.notice {
+  color: #28a746de;
+  @include sp {
+    font-size: 1.2rem;
+  }
+  @include tab {
+    font-size: 1.4rem;
+  }
+  @include pc {
+    font-size: 1.8rem;
+  }
+}
+
+.alert {
+  color: red;
+  @include sp {
+    font-size: 1rem;
+  }
+  @include tab {
+    font-size: 1.2rem;
+  }
+  @include pc {
+    font-size: 1.4rem;
+  }
+}
+
 // body {
 //   // width: 100%; 必要かどうか
 // }
 
 .partition {
   margin: 0.5rem 0;
+}
+
+#errors_explanation {
+  ul {
+    li.devise-error-message {
+      font-size: 2rem;
+    }
+  }
 }
 
 // .container {
@@ -158,7 +212,7 @@ body,h1,h2,h3,h4,h5,h6,p {
   @include pc {
     padding-bottom: 10rem;
   }
-  background-color: #fffcf1;
+  background-color: #fffdf6;
 }
 
 
@@ -166,6 +220,7 @@ body,h1,h2,h3,h4,h5,h6,p {
 
 // ここから新しくbootstrap4適用で書いていく
 
+// ナビゲーション
 .navbar {
   background-color: white;
   .navbar-toggler {

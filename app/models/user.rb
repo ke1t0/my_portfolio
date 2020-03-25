@@ -11,6 +11,7 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   def already_liked?(post)
     self.likes.exists?(post_id: post.id)
@@ -23,14 +24,4 @@ class User < ApplicationRecord
       all
     end
   end
-
-  # def self.search(search)
-  #   if search
-  #     User.includes(:posts).where(['name LIKE ? OR body LIKE ?' , "%#{search}%", "%#{search}%"]).references(:posts)
-  #   else
-  #     all
-  #     # nil
-  #     # 当てはまらなかったらflash生成とリダイレクト
-  #   end
-  # end
 end

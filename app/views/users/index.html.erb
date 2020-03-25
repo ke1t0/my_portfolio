@@ -1,1 +1,28 @@
-<h1>管理者のみのページ</h1>
+<div class="admin-page">
+  <%= form_with url: users_path, method: :get, local: true do |f| %>
+    <%= f.text_field :search %>
+    <%= f.submit %>
+  <% end %>
+
+  <% if current_user.admin == true %>
+  <h1>管理者のみのページ</h1>
+    <div>
+      <table class="users-table">
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>作成日</th>
+        <th>削除</th>
+      </tr>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= link_to user.name, user_path(user) %></td>
+          <td><%= user.created_at.to_s(:datetime_jp) %></td>
+          <td><%= link_to "削除", user_path(user), method: :destroy, data: { confirm: '削除しますか？' } %></td>
+        </tr>
+      <% end %>
+    </table>
+    </div>
+<% end %>
+</div>

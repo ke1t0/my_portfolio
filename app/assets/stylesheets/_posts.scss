@@ -125,7 +125,9 @@ $pc: 1024px; //min
     @include sp {
       width: 24rem;
       height: 20rem;
-
+    }
+    @include pc {
+      font-size: 1.2rem;
     }
     width: 32rem;
     height: 40rem;
@@ -191,7 +193,6 @@ $pc: 1024px; //min
     }
     font-weight: bold;
     color: #5ba13680;
-    margin-left: 1rem;
   }
 
   .pagination {
@@ -215,7 +216,6 @@ $pc: 1024px; //min
       }
     }
   }
-  
 }
 
 .post-index-user-name {
@@ -239,7 +239,15 @@ $pc: 1024px; //min
   @include pc {
     font-size: 1.4rem;
   }
-  margin-bottom: 0.2rem;
+  margin-bottom: 0;
+
+  a {
+    color: #28a746de;
+    font-weight: bold;
+    &:hover {
+      color: #28a746de;
+    }
+  }
 }
 
 // .like-icon {
@@ -289,9 +297,52 @@ $pc: 1024px; //min
     @include tab {
       font-size: 1.6rem;
     }
-    margin-left: 2rem;
     font-weight: bold;
     color: #5ba13680;
   }
 
+  .comment {
+    p {
+      margin-bottom: 0.1rem;
+    }
+    .comment-form {
+      textarea {
+        border: solid 1px #28a746de;
+        resize: none;
+        @include sp {
+          width: 24rem;
+          height: 6rem;
+        }
+        @include tab {
+          width: 40rem;
+          height: 10rem;
+        }
+        @include pc {
+          width: 50rem;
+          height: 12rem;
+        }
+      }
+      
+      
+      .comment-btn {
+        @include sp {
+          width: 24rem;
+        }
+        @include tab {
+          width: 40rem;
+        }
+        @include pc {
+          width: 50rem;
+          input {
+            font-size: 1.2rem;
+          }
+        }
+        text-align: center;
+      }
+    }
+
+    .delete-post-btn {
+      font-size: 1.2rem;
+    }
+  }
 }
