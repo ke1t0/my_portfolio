@@ -1,7 +1,7 @@
 <div class="post-index">
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-  <%= paginate @posts %>
+  <%= paginate @posts, class: "pagination" %>
   <% posts.each do |post| %>
     <hr class="partition">
     <h2 class="post-index-user-name">
@@ -22,5 +22,5 @@
     <% end %>
   <% end %>
   <hr>
-  <%= paginate @posts %>
+  <%= paginate @posts, class: "pagination" %>
 </div>

@@ -12,7 +12,7 @@
     <div id="users" class="tab-pane active">
       <% if @users.present? %>
         <% @users.each do |user| %>
-          <p><%= user.name %></p>
+          <p><%= link_to user.name, user_path(user) %></p>
           <hr class="partition">
         <% end %>
       <% else %>
@@ -23,7 +23,7 @@
     <div id="posts" class="tab-pane">
       <% if @posts.present? %>
           <% @posts.each do |post| %>
-          <p><%= post.body %></p>
+          <p><%= link_to post.body, post_path(post) %></p>
           <hr class="partition">
         <% end %>
       <% else %>

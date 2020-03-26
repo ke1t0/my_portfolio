@@ -32,6 +32,35 @@ $pc: 1024px; //min
   width: 70%;
   margin: 0 auto;
   text-align: center;
+
+  .follow-count {
+    color: #333333;
+    font-size: 1.2rem;
+    text-decoration: none;
+  }
+
+  .btn {
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0.8rem 0;
+    padding: 0.4rem 2rem;
+  }
+  .follow-btn {
+    border: solid 1px #28a746de;
+    color: #28a746de;
+    &:hover {
+      color: #28a746de;
+    }
+  }
+  .followed-btn {
+    background-color: #28a746de;
+    color: white;
+    &:hover {
+      color: white;
+    }
+  }
+
   .edit-profile-btn {
     color: #28a746de;
     border: solid 0.1rem #28a746de;
@@ -92,9 +121,99 @@ $pc: 1024px; //min
       @include pc {
         font-size: 1.4rem;
       }
+      .delete-btn {
+        color: #28a746de;
+      }
     }
     td:nth-child(2) {
       text-align: left;
+    }
+  }
+
+  span {
+    .search-form {
+      input {
+        @include pc {
+          font-size: 1.2rem;
+          line-height: 2.4rem;
+          border: solid 2px #28a746de;
+        }
+        margin-bottom: 1rem;
+        border: solid 1px #28a746de;
+        border-radius: 12px;
+        &:focus {
+          @include pc {
+            border: solid 2px #28a746de;
+          }
+          border-radius: 12px;
+        }
+      }
+    }
+    .search-user-btn {
+      padding: 0.15rem 0.3;
+      color: #28a746de;
+      background-color: #fffcf1;
+      &:hover {
+        background-color: #28a746de;
+        color: white;
+      }
+    }
+  }
+}
+
+.follow-page {
+  text-align: center;
+  p {
+    margin-bottom: 0;
+    @include pc {
+      font-size: 1.2rem;
+    }
+  }
+  h3 {
+    @include sp {
+      font-size: 1.2rem;
+    }
+    @include tab {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+.follow-index {
+  text-align: center;
+  margin: 0 auto;
+  width: 60%;
+  @include pc {
+    width: 80%;
+  }
+
+  p {
+    margin-bottom: 0;
+    a {
+      font-size: 1.4rem;
+      color: black;
+    }
+  }
+  
+  .pagination {
+    justify-content: center; //どっちにするか未定
+    @include pc {
+      font-size: 1.2rem;
+    }
+    li {
+      a {
+        border: none;
+        color: #28a746de;
+        &:hover {
+          border-radius: 15px;
+        }
+      }
+    }
+    .active {
+      a {
+        background-color: #28a746de;
+        border-radius: 15px;
+      }
     }
   }
 }

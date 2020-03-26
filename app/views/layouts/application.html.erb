@@ -41,7 +41,6 @@
               <li class="nav-item">
                 <%= link_to "ログアウト", destroy_user_session_path, class: "nav-info", method: :delete %>
               </li>
-              <%# ここに検索フォームを作る %>
               <span>
                 <%= form_with url: searches_user_path, method: :get, local: true, class: "search-form" do |f| %>
                 <%= f.text_field :search %>

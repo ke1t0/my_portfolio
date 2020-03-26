@@ -4,11 +4,15 @@
     <%= link_to @post.user.name, user_path(@post.user.id), class: "link-format" %>
   </h2>
   <p><%= simple_format(@post.body) %></p>
-  <%= @post.created_at.to_s(:datetime_jp) %>
+  <p class="datetime">
+    <%= @post.created_at.to_s(:datetime_jp) %>
+  </p>
   <div id="show_like_<%= @post.id %>">
     <%= render "likes/like", post: @post %>
   </div>
-    <%= link_to "削除", post_path(@post), class: "delete-post-btn", method: :delete, data: { confirm: '削除しますか？' } %>
+    <% if current_user == @post.user || current_user.admin == true %>
+      <%= link_to "削除", post_path(@post), class: "delete-post-btn", method: :delete, data: { confirm: '削除しますか？' } %>
+    <% end %>
     <hr>
   
   <div class="comment">
@@ -20,11 +24,13 @@
       <% @comments.each do |comment| %>
         <hr class="partition">
         <p>
-          <%= comment.user.name %>
+          <%= link_to comment.user.name, user_path(comment.user), class: "link-format" %>
           <%= simple_format(comment.text) %>
         </p>
-        <%= comment.created_at.to_s(:datetime_jp) %>
-        <% if current_user.id === comment.user.id %>
+        <p class="datetime">
+          <%= comment.created_at.to_s(:datetime_jp) %>
+        </p>
+        <% if current_user.id == comment.user.id || current_user.admin == true %>
           <%= link_to "削除", post_comment_path(id: comment.id, post_id: comment.post_id), class: "delete-post-btn", method: :delete, data: { confirm: '削除しますか？' } %>
         <% end %>
         

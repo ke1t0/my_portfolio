@@ -1,0 +1,9 @@
+<div class="follow-index">
+  <h3>フォロー中</h3>
+  <%= paginate @users, class: "pagination" %>
+  <% @users.each do |user| %>
+    <hr class="partition">
+    <p><%= link_to user.name, user_path(user) %></p>
+  <% end %>
+  <%= paginate @users, class: "pagination" %>
+</div>
