@@ -1,5 +1,6 @@
-$sp: 575px; //max
+$sp: 767px; //max
 $tab: 768px; //min
+$tab-max: 1023px;
 $pc: 1024px; //min
 
 @mixin sp {
@@ -9,7 +10,7 @@ $pc: 1024px; //min
 }
 
 @mixin tab {
-  @media (min-width: ($tab)) {
+  @media screen and (min-width: ($tab)) and (max-width: ($tab-max)) {
     @content;
   }
 }
@@ -20,183 +21,104 @@ $pc: 1024px; //min
   }
 }
 
-// 新規投稿
-
-// .post-new {
-//   @include tab {
-//     width: 32rem;
-//     height: 40rem;
-//     font-size: 1rem;
-//   }
-//   @include sp {
-//     width: 24rem;
-//     height: 30rem;
-//     font-size: 1rem;
-//   }
-//   width: 48rem;
-//   height: 48rem;
-//   border: solid 1px #5ba136;
-//   resize: none;
-//   font-size: 1.4rem;
-// }
-
-// 投稿一覧
-
-// .link-format {
-//   color: #333333;
-//     &:hover {
-//       text-decoration: none;
-//     }
-// }
-
-// .post-index-user-name {
-  // @include tab {
-  //   font-size: 1.2rem;
-  //   margin-bottom: 0.3rem;
-  // }
-  // @include sp {
-  //   font-size: 1rem;
-  // }
-  // font-size: 1.6rem;
-// }
-
-// .post-index-user-body {
-//   @include tab {
-//     font-size: 1rem;
-//     margin-bottom: 0;
-//   }
-//   @include sp {
-//     font-size: 1rem;
-//   }
-//   font-size: 1.2rem;
-// }
-
-// .like-icon {
-//   @include tab {
-//     font-size: 1rem;
-//   }
-//   @include sp {
-//     font-size: 1rem;
-//   }
-//   font-size: 1.2rem;
-// }
-
-// .pagination {
-//   justify-content: center;
-//   font-size: 1.2rem;
-//   li {
-//     a {
-//       border: none;
-//       color: #696969;
-//       &:hover {
-//         border-radius: 15px;
-//       }
-//     }
-//   }
-//   .active {
-//     a {
-//       background-color: #93c9ff;
-//       border-radius: 15px;
-//     }
-//   }
-// }
-
-// .change-profile {
-//   a {
-//     font-size: 5px;
-//     padding: 5px;
-//     margin: 5px;
-//     color: red;
-//     border: solid 1px #5ba136;
-//   }
-// }
-
-
 // ここからbootstrap4
 
 // 新規投稿
-
-.post-new {
-  @include tab {
-    // height: 58rem;
+.new-post {
+  // background-color: #fcfcfc;
+  background-color: #fbfbfb;
+  border-top: solid 5px #28a746de;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+  border-radius: 0 0 10px 20px;
+  padding: 4rem;
+  margin: 5rem auto;
+  @include sp {
+    width: 95%;
   }
-  text-align: center;
-  .post-new-form {
-    @include sp {
-      width: 24rem;
-      height: 20rem;
+  @include tab {
+    width: 90%;
+  }
+  @include pc {
+    width: 80%;
+  }
+
+
+  .post-new {
+    text-align: center;
+    .post-new-form {
+      @include sp {
+        width: 24rem;
+        height: 20rem;
+      }
+      @include pc {
+        font-size: 1.2rem;
+      }
+      width: 32rem;
+      height: 40rem;
+      resize: none;
+      border: solid 2px #5ba13680;
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+    }
+  
+    .post-image {
+      border: solid 2px #5ba13680;
+      margin-top: 0.6rem;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  
+    .post-btn {
+      border: solid 2px #5ba13680;
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+      font-size: 1.6rem;
+      font-weight: bold;
+      width: 10rem;
+      color: #5d627b;
+      &:hover {
+        color: white;
+        background-color: #28a746de;
+      }
+    }
+  }
+
+  .post-example {
+    opacity: 0.6;
+    @include tab {
+      margin-left: 6rem;
     }
     @include pc {
       font-size: 1.2rem;
     }
-    width: 32rem;
-    height: 40rem;
-    resize: none;
-    border: solid 1px #5ba13680;
-  }
-
-  .post-image {
-    border: solid 1px #5ba13680;
-    margin-top: 0.6rem;
-    &:hover {
-      cursor: pointer;
+    .post-example-box {
+      @include sp {
+        width: 50%;
+        margin: 0 auto;
+      }
     }
   }
-
-  .post-btn {
-    border: solid 1px #5ba13680;
-    font-size: 1.6rem;
-    font-weight: bold;
-    width: 10rem;
-    color: #333333;
-  }
 }
-
-.post-example {
-  @include tab {
-    margin-left: 6rem;
-  }
-  @include pc {
-    font-size: 1.2rem;
-  }
-  .post-example-box {
-    @include sp {
-      width: 50%;
-      margin: 0 auto;
-    }
-  }
-  opacity: 0.6;
-}
-
 
 // 投稿一覧
 
-.link-format {
-  color: #333333;
-  &:hover {
-    text-decoration: none;
-  }
-}
-
 .post-index {
+  margin: 3rem auto;
   @include pc {
     padding: 0 4rem;
   }
+
+  .alert .notice {
+    text-align: center;
+  }
+
   .like-icon {
     @include tab {
       font-size: 1.2rem;
     }
   }
-  .delete-post-btn {
-    @include pc {
-      font-size: 1.4rem;
-    }
-    font-weight: bold;
-    color: #5ba13680;
-  }
-
+  
   .pagination {
-    // justify-content: center; どっちにするか未定
+    justify-content: center;
     @include pc {
       font-size: 1.2rem;
     }
@@ -216,62 +138,115 @@ $pc: 1024px; //min
       }
     }
   }
-}
 
-.post-index-user-name {
-  @include sp {
-    font-size: 1.1rem;
-    margin-bottom: 0;
-  }
-  @include tab {
-    font-size: 1.2rem;
-  }
-  @include pc {
-    font-size: 1.6rem;
-  }
-  
-}
+  .post-index {
+    display: flex;
+    flex-wrap: wrap;
 
-.post-index-user-body {
-  @include tab {
-    font-size: 1.1rem;
-  }
-  @include pc {
-    font-size: 1.4rem;
-  }
-  margin-bottom: 0;
+    @include sp {
+      justify-content: center;
+    }
+    @include tab {
+      padding-left: 5rem;
+    }
+    @include pc {
+      padding-left: 10rem;
+    }
 
-  a {
-    color: #28a746de;
-    font-weight: bold;
-    &:hover {
-      color: #28a746de;
+    .postcard {
+      // background-color: #fcfcfc;
+      background-color: #fbfbfb;
+      border-top: solid 5px #28a746de;
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+      border-radius: 0 0 10px 10px;
+      overflow: auto;
+      margin-bottom: 30px;
+      text-align: center;
+      @include sp {
+        width: 70%;
+        height: 22rem;
+      }
+      @include tab {
+        width: 28%;
+        height: 22rem;
+        margin-right: 3rem;
+      }
+      @include pc {
+        width: 21%;
+        height: 26rem;
+        margin-right: 3rem;
+      }
+
+      .post-body {
+        width: 70%;
+        margin: 0 auto;
+        text-align: left;
+
+        @include pc {
+          font-size: 1.2rem;
+        }
+
+        a {
+          color: #28a746de;
+          font-weight: bold;
+          &:hover {
+            color: #28a746de;
+          }
+          @include sp {
+            font-size: 1.2rem;
+          }
+          @include pc {
+            font-size: 1.4rem;
+          }
+        }
+
+        .delete-post-btn {
+          @include sp {
+            font-size: 1.2rem;
+          }
+          @include pc {
+            font-size: 1.4rem;
+          }
+          font-weight: bold;
+          color: #5ba13680;
+          margin-left: 1rem;
+        }
+      }
+
+      .post-image img {
+        @include sp {
+          width: 8rem;
+        }
+        @include tab {
+          width: 10rem;
+        }
+      }
+
+      .datetime {
+        @include pc {
+          font-size: 1.4rem;
+        }
+        opacity: 0.7;
+        margin-bottom: 0;
+      }
     }
   }
 }
 
-// .like-icon {
-    
-//   font-size: 3rem;
-// }
-
-.datetime {
-  @include pc {
-    font-size: 1.4rem;
-  }
-  opacity: 0.7;
-  margin-bottom: 0;
-}
-
-
-
-
-
 // 投稿詳細
 
 .post-show {
+  background-color: #fbfbfb;
+  // background-color: #fcfcfc;
+  border-top: solid 5px #28a746de;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+  border-radius: 0 0 10px 10px;
+  width: 70%;
+  margin: 5rem auto;
+  padding: 5rem;
+
   @include sp {
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
   }
   @include tab {
@@ -282,6 +257,7 @@ $pc: 1024px; //min
   @include pc {
     font-size: 1.4rem;
   }
+
   .like-icon {
     @include sp {
       font-size: 1.2rem;
@@ -290,6 +266,7 @@ $pc: 1024px; //min
       font-size: 1.6rem;
     }
   }
+
   .delete-post-btn {
     @include sp {
       font-size: 1.2rem;
@@ -301,6 +278,18 @@ $pc: 1024px; //min
     color: #5ba13680;
   }
 
+  .post-image img {
+    @include sp {
+      width: 8rem;
+    }
+    @include tab {
+      width: 10rem;
+    }
+    @include pc {
+      width: 12rem;
+    }
+  }
+
   .comment {
     p {
       margin-bottom: 0.1rem;
@@ -308,6 +297,7 @@ $pc: 1024px; //min
     .comment-form {
       textarea {
         border: solid 1px #28a746de;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
         resize: none;
         @include sp {
           width: 24rem;
@@ -322,8 +312,7 @@ $pc: 1024px; //min
           height: 12rem;
         }
       }
-      
-      
+
       .comment-btn {
         @include sp {
           width: 24rem;
@@ -338,11 +327,20 @@ $pc: 1024px; //min
           }
         }
         text-align: center;
+
+        input {
+          box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+        }
       }
     }
 
     .delete-post-btn {
       font-size: 1.2rem;
+    }
+
+    .datetime {
+      opacity: 0.7;
+      margin-bottom: 0;
     }
   }
 }

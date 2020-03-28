@@ -21,19 +21,27 @@ $pc: 1024px; //min
 }
 
 .search-page {
-  @include sp {
-    width: 100%;
-  }
-  height: 70rem;
+  background-color: #fbfbfb;
+  border-top: solid 5px #28a746de;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+  border-radius: 0 0 10px 10px;
   width: 70%;
-  margin: 0 auto;
+  margin: 5rem auto;
+  padding: 5rem;
   text-align: center;
+
+  @include sp {
+    width: 95%;
+  }
+  
   .nav-tabs {
+    margin-top: 4rem;
     .nav-link {
-      color: #000;
+      color: #5d627b;
     }
     .nav-link.active {
-      color: #28a746de;
+      background-color: #28a746de;
+      color: #fff;
     }
   }
 

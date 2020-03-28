@@ -65,8 +65,11 @@
     </div>
 
     <div id="comments" class="tab-pane">
-      <% if present? %>
-        <h4>コメントは実装されていません</h4>
+      <% if @user.comments.present? %>
+        <% @comment_posts.each do |comment| %>
+          <p><%= link_to comment.text, post_path(comment.post), class: "link-format" %></p>
+          <hr class="partition">
+        <% end %>
       <% else %>
         <h4>コメントはありません</h4>
       <% end %>

@@ -4,6 +4,7 @@
     <%= link_to @post.user.name, user_path(@post.user.id), class: "link-format" %>
   </h2>
   <p><%= simple_format(@post.body) %></p>
+  <div class="post-image"><%= image_tag @post.image.url if @post.image? %></div>
   <p class="datetime">
     <%= @post.created_at.to_s(:datetime_jp) %>
   </p>

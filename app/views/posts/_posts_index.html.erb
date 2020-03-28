@@ -1,26 +1,33 @@
 <div class="post-index">
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+  
+
   <%= paginate @posts, class: "pagination" %>
-  <% posts.each do |post| %>
-    <hr class="partition">
-    <h2 class="post-index-user-name">
-      <%= link_to post.user.name, user_path(post.user.id), class: "link-format" %>
-    </h2>
-    <div class="post-index-user-body">
-      <%= simple_format(post.body.truncate(100)) %>
-      <%= link_to "詳細", post_path(post) %>
-    </div>
-    <p class="datetime">
-      <%= post.created_at.to_s(:datetime_jp) %>
-    </p>
-    <div id="index_like_<%= post.id %>">
-      <%= render "likes/like", post: post %>
-    </div>
-    <% if current_user == post.user %>
-      <%= link_to "削除", post_path(post), class: "delete-post-btn", method: :delete, data: { confirm: '削除しますか？' } %>
+  <div class="post-index">
+    <% posts.each do |post| %>
+      <div class="postcard">
+        <div class="post-user-name">
+          <h3><%= link_to post.user.name, user_path(post.user), class: "link-format" %></h3>
+        </div>
+        <div class="post-body">
+          <p><%= simple_format(post.body.truncate(70)) %></p>
+          <%= link_to "詳細", post_path(post) %>
+          <% if current_user == post.user || current_user.admin == true %>
+            <%= link_to "削除", post_path(post), class: "delete-post-btn", method: :delete, data: { confirm: '削除しますか？' } %>
+          <% end %>
+          <div id="index_like_<%= post.id %>">
+            <%= render "likes/like", post: post %>
+          </div>
+        </div>
+        <div class="post-image">
+          <%= image_tag post.image.url if post.image? %>
+        </div>
+        <p class="datetime">
+          <%= post.created_at.to_s(:datetime_jp) %>
+        </p>
+      </div>
     <% end %>
-  <% end %>
-  <hr>
+  </div>
   <%= paginate @posts, class: "pagination" %>
 </div>

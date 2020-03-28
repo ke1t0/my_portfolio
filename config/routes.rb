@@ -4,9 +4,12 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     sessions: "users/sessions"
   }
-  resources :users do
+  resources :users, only: [:index, :show, :destroy] do
     member do
-      get :following, :followers, :follow_page
+      get :following, :followers
+    end
+    collection do
+      delete :destroy_image
     end
   end
   resources :relationships, only: [:create, :destroy]

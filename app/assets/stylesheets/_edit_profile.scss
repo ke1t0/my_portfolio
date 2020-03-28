@@ -20,8 +20,15 @@ $pc: 1024px; //min
   }
 }
 
-
 .edit-profile {
+  background-color: #fbfbfb;
+  border-top: solid 5px #28a746de;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+  border-radius: 0 0 10px 10px;
+  padding: 4rem;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 5rem;
   text-align: center;
   .post-btn {
     @include sp {
@@ -29,7 +36,7 @@ $pc: 1024px; //min
     }
     border: solid 2px #28a746de;
     border-radius: 15px;
-    background-color: #fffcf1;
+    background-color: #fff;
     color: #28a746de;
     font-size: 1.6rem;
     font-weight: bold;
@@ -47,47 +54,52 @@ $pc: 1024px; //min
     border: none;
     border-top: double 3px rgb(255, 100, 100);
     border-bottom: double 3px rgb(255, 100, 100);
-    background-color: #fffcf1;
+    background-color: #fff;
   }
-}
+  
+    .edit-profile-form {
+      @include pc {
+        font-size: 1.4rem;
+      }
+    font-size: 1.2rem;
 
-.edit-profile-form {
-  @include pc {
-    font-size: 1.4rem;
-  }
-  font-size: 1.2rem;
-
-  input, textarea {
-    border: solid 1px #28a746de;
-  }
-
-  input {
-    @include pc {
-      width: 30rem;
+    input,
+    textarea {
+      border: solid 1px #28a746de;
     }
-    width: 20rem;
-  }
 
-  textarea {
-    @include sp {
+    input {
+      @include pc {
+        width: 30rem;
+      }
       width: 20rem;
-      height: 10rem;
     }
-    @include tab {
-      width: 32rem;
-      height: 16rem;
-    }
-    @include pc {
-      width: 50rem;
-      height: 30rem;
-    }
-    resize: none;
-  }
 
-  .edit-image {
-    &:hover {
-      cursor: pointer;
+    textarea {
+      @include sp {
+        width: 20rem;
+        height: 10rem;
+      }
+      @include tab {
+        width: 32rem;
+        height: 16rem;
+      }
+      @include pc {
+        width: 50rem;
+        height: 30rem;
+      }
+      resize: none;
     }
-    background-color: white;
+
+    .edit-image {
+      &:hover {
+        cursor: pointer;
+      }
+      // background-color: white;
+    }
+
+    .edit-user-image {
+      color: #28a746de;
+    }
   }
 }

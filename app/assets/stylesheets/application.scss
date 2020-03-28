@@ -22,8 +22,9 @@
 @import "edit_profile";
 @import "edit_password";
 
-$sp: 575px; //max
+$sp: 767px; //max
 $tab: 768px; //min
+$tab-max: 1023px;
 $pc: 1024px; //min
 
 @mixin sp {
@@ -33,7 +34,7 @@ $pc: 1024px; //min
 }
 
 @mixin tab {
-  @media (min-width: ($tab)) {
+  @media screen and (min-width: ($tab)) and (max-width: ($tab-max)) {
     @content;
   }
 }
@@ -45,17 +46,31 @@ $pc: 1024px; //min
 }
 
 html {
-  font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  font-family: "Lato", "Noto Sans JP", "ヒラギノ角ゴ ProN",
+    "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
+    "MS PGothic", sans-serif;
   font-size: 62.5%;
 }
 
-body,h1,h2,h3,h4,h5,h6,p {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   padding: 0;
   margin: 0;
 }
 
 #error_explanation {
   color: red;
+
+  h2 {
+
+  }
+
   ul {
     list-style: none;
     li {
@@ -71,6 +86,7 @@ body,h1,h2,h3,h4,h5,h6,p {
 
 .notice {
   color: #28a746de;
+  text-align: center;
   @include sp {
     font-size: 1.2rem;
   }
@@ -84,6 +100,7 @@ body,h1,h2,h3,h4,h5,h6,p {
 
 .alert {
   color: red;
+  text-align: center;
   @include sp {
     font-size: 1rem;
   }
@@ -111,123 +128,23 @@ body,h1,h2,h3,h4,h5,h6,p {
   }
 }
 
-// .container {
-//   @include tab {
-//     height: 64rem;
-//   }
-//   @include sp {
-//     height: 50rem;
-//     margin-top: 2rem;
-//   }
-//   height: 72rem;
-//   color: #333333;
-//   background-color: #fdfaeb;
-//   text-align: center;
-// }
-
-// .header-nav {
-//   @include tab {
-//     border-top: solid 0.2rem #5ba136;
-//   }
-//   @include sp {
-//     height: 3rem;
-//     line-height: 3rem;
-//   }
-//   border-top: solid 0.4rem #5ba136;
-// }
-
-// .u-title {
-//   @include tab {
-//     height: 4rem;
-//     line-height: 5rem;
-//   }
-//   @include sp {
-//     width: 8rem;
-//     font-size: 1.4rem;
-//     // height: 2rem;
-//     // line-height: 3rem;
-//     margin: 0 0 0 2rem;
-//   }
-
-//   width: 15rem;
-//   height: 6rem;
-//   margin: 0 0 0 5rem;
-//   text-align: center;
-//   line-height: 7rem;
-// }
-
-// .nav-right {
-//   margin-left: auto;
-// }
-
-// .nav-ul {
-//   @include tab {
-//     padding-right: 1rem;
-//     height: 4rem;
-//     line-height: 5rem;
-//   }
-//   @include sp {
-//     padding-right: 0.5rem;
-//     // height: 2rem;
-//     // line-height: 3rem;
-//   }
-//   padding-right: 6rem;
-//   height: 6rem;
-//   line-height: 7rem;
-// }
-
-// .nav-info {
-//   @include tab {
-//     font-size: 0.1px;
-//     margin-left: 1.4rem;
-//   }
-//   @include sp {
-//     font-size: 1rem;
-//     margin-left: 0.5rem;
-//     padding: 0.2rem;
-//     border: solid 1px #5ba136;
-//   }
-//   font-size: 1.5rem;
-//   margin-left: 5rem;
-//   color: #333333;
-//   border-radius: 15px;
-//   padding: 0.7rem;
-//   border: solid 0.2rem #5ba136;
-//   &:hover {
-//     border: solid 0.2rem #fff;
-//     background-color: #5ba136;
-//     color: #fff;
-//     text-decoration: none;
-//   }
-// }
-
-
-.text {
-  @include sp {
-    padding-bottom: 3rem;
+.link-format {
+  color: #333333;
+  &:hover {
+    text-decoration: none;
   }
-  @include tab {
-    padding-bottom: 5rem;
-  }
-  @include pc {
-    padding-bottom: 10rem;
-  }
-  background-color: #fffdf6;
 }
-
-
-
 
 // ここから新しくbootstrap4適用で書いていく
 
 // ナビゲーション
 .navbar {
-  background-color: white;
+  // background-color: white;
+  border-bottom: 2px solid #5d627b;
+
   .navbar-toggler {
     font-size: 2rem;
-    color: #28a746de;
   }
-  border-bottom: 1px solid #28a746de;
 
   span {
     .search-form {
@@ -243,6 +160,7 @@ body,h1,h2,h3,h4,h5,h6,p {
         }
         border: solid 1px #28a746de;
         border-radius: 12px;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
         &:focus {
           @include pc {
             border: solid 2px #28a746de;
@@ -253,7 +171,8 @@ body,h1,h2,h3,h4,h5,h6,p {
     }
     .search-user-btn {
       padding: 0.15rem 0.3;
-      color: #28a746de;
+      color: #5d627b;
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
       &:hover {
         background-color: #28a746de;
         color: white;
@@ -288,23 +207,29 @@ body,h1,h2,h3,h4,h5,h6,p {
 }
 
 .nav-info {
+  color: #5d627b;
+  font-size: 1.2rem;
   @include sp {
     font-size: 1rem;
+    color: #28a746de;
+  }
+  @include tab {
+    color: #28a746de;
   }
   @include pc {
-    border: solid 0.2rem #28a746de;
-    border-radius: 15px;
+    // border-bottom: solid 0.2rem #28a746de;
+    border-radius: 12px;
     padding: 0.7rem;
     margin-left: 3rem;
+    // box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
     &:hover {
       background-color: #28a746de;
       color: #fff;
-    text-decoration: none;
+      transition-duration: 0.5s;
+      text-decoration: none;
     }
     display: flex;
   }
-  color: #28a746de;
-  font-size: 1.2rem;
 }
 
 .login-btn {

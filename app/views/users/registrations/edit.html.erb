@@ -21,6 +21,9 @@
 
     <div class="edit-profile-form">
       <%= f.label :image, "画像(変更がなければ飛ばしてください)" %>
+      <h5>
+        <%= link_to "画像削除", destroy_image_users_path, class: "link-format edit-user-image", method: :delete %>
+      </h5>
       <p>
         <%= f.file_field :image, class: "edit-image" %>
       </p>
@@ -45,7 +48,7 @@
     </div>
 
     <div class="edit-profile-form">
-      <%= f.label :current_password %> <i>(設定を変更するにはパスワードが必要です)</i><br />
+      <%= f.label :current_password %> <i></i><br />
       <%= f.password_field :current_password, autocomplete: "current-password" %>
     </div>
 

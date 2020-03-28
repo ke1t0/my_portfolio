@@ -1,4 +1,5 @@
 <div class="search-page">
+  <h1>検索結果</h1>
   <ul class="nav nav-tabs nav-justified">
     <li class="nav-item">
       <a href="#users" class="nav-link active" data-toggle="tab">ユーザー</a>
@@ -12,7 +13,7 @@
     <div id="users" class="tab-pane active">
       <% if @users.present? %>
         <% @users.each do |user| %>
-          <p><%= link_to user.name, user_path(user) %></p>
+          <p><%= link_to user.name, user_path(user), class: "link-format" %></p>
           <hr class="partition">
         <% end %>
       <% else %>
@@ -23,7 +24,7 @@
     <div id="posts" class="tab-pane">
       <% if @posts.present? %>
           <% @posts.each do |post| %>
-          <p><%= link_to post.body, post_path(post) %></p>
+          <p><%= link_to post.body, post_path(post), class: "link-format" %></p>
           <hr class="partition">
         <% end %>
       <% else %>

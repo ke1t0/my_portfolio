@@ -1,15 +1,16 @@
-$sp: 575px; //max
+$sp: 767px; //max
 $tab: 768px; //min
+$tab-max: 1023px;
 $pc: 1024px; //min
 
-@mixin pc {
+@mixin sp {
   @media (max-width: ($sp)) {
     @content;
   }
 }
 
 @mixin tab {
-  @media (min-width: ($tab)) {
+  @media screen and (min-width: ($tab)) and (max-width: ($tab-max)) {
     @content;
   }
 }
@@ -22,19 +23,52 @@ $pc: 1024px; //min
 
 .home-page {
   text-align: center;
-  @include pc {
-    height: 58rem;
+
+  p {
+    margin-bottom: 0;
   }
+
   .home-title {
+    color: #f4f4f4;
+    color: #000;
+    padding-top: 14rem;
+
+    @include sp {
+      font-size: 3rem;
+    }
+
+    @include tab {
+      font-size: 3rem;
+
+    }
+
     @include pc {
       font-size: 4rem;
     }
   }
 
   .home-info {
+    color: #f4f5f7;
+    color: #000;
+    // color: rgba(153, 255, 0, 0.767);
+    padding-bottom: 20rem;
+
+    @include sp {
+      font-size: 1.6rem;
+      margin-top: 4rem;
+      letter-spacing: 0.1rem;
+      line-height: 3rem;
+    }
+
+    @include tab {
+      margin-top: 4rem;
+      letter-spacing: 0.4rem;
+      line-height: 6rem;
+    }
+
     @include pc {
       font-size: 2.4rem;
-      margin-top: 8rem;
+      margin-top: 6rem;
       letter-spacing: 0.8rem;
       line-height: 8rem;
     }

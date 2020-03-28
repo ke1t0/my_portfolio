@@ -1,30 +1,28 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  before do
-    @user = FactoryBot.create(:user)
-  end
+  let(:user) {create(:user)}
 
   it "is valid with a body" do
-    post = FactoryBot.create(:post, body: "a"*1000)
+    post = create(:post, body: "a"*1000)
     expect(post).to be_valid
   end
 
   # user_idにバリデーションをかけているけど通ってしまう
   it "is invalid without a user_id" do
-    post1 = FactoryBot.create(:post)
+    post1 = create(:post)
     expect(post1).to be_valid
   end
 
   context "invalid a body" do
     it "is invalid without a body" do
-      post = FactoryBot.build(:post, body: nil)
+      post = build(:post, body: nil)
       post.valid?
       expect(post.errors[:body]).to include("を入力してください")
     end
   
     it "is invalid a body too long" do
-      post = FactoryBot.build(:post, body: "a"*1001)
+      post = build(:post, body: "a"*1001)
       post.valid?
       expect(post.errors[:body]).to include("は1000文字以内で入力してください")
     end
@@ -32,10 +30,10 @@ RSpec.describe Post, type: :model do
 
   describe "#search" do
     before do
-      @post1 = @user.posts.create(
+      @post1 = user.posts.create(
         body: "Hello, world!"
       )
-      @other_user = FactoryBot.create(:user)
+      @other_user = create(:user)
       @post2 = @other_user.posts.create(
         body: "goodbye, world"
       )

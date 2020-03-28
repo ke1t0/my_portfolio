@@ -26,11 +26,16 @@ $pc: 1024px; //min
 // ユーザー詳細
 
 .user-profile {
+  background-color: #fbfbfb;
+  border-top: solid 5px #28a746de;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+  border-radius: 0 0 10px 10px;
+  padding: 4rem;
   @include sp {
-    width: 100%;
+    width: 95%;
   }
   width: 70%;
-  margin: 0 auto;
+  margin: 5rem auto;
   text-align: center;
 
   .follow-count {
@@ -74,16 +79,21 @@ $pc: 1024px; //min
 
   .nav-tabs {
     margin-top: 1.2rem;
-    background-color: #fffcf1;
+    // background-color: #fff;
     .nav-link {
       color: #000;
     }
     .nav-link.active {
-      color: #28a746de;
+      color: #fff;
+      background-color: #28a746de;
     }
   }
 
   .tab-content {
+    .tab-pane {
+      overflow: auto;
+      height: 40rem;
+    }
     .tab-pane h4 {
       padding-top: 3rem;
     }
@@ -99,10 +109,12 @@ $pc: 1024px; //min
 // 管理者ページ
 
 .admin-page {
+  margin: 5rem auto;
   text-align: center;
   .users-table {
     margin: 0 auto;
-    th, td {
+    th,
+    td {
       border: solid 1px black;
       text-align: center;
     }
@@ -118,6 +130,7 @@ $pc: 1024px; //min
     }
     td {
       padding: 0 1rem;
+
       @include pc {
         font-size: 1.4rem;
       }
@@ -138,6 +151,7 @@ $pc: 1024px; //min
           line-height: 2.4rem;
           border: solid 2px #28a746de;
         }
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
         margin-bottom: 1rem;
         border: solid 1px #28a746de;
         border-radius: 12px;
@@ -152,39 +166,51 @@ $pc: 1024px; //min
     .search-user-btn {
       padding: 0.15rem 0.3;
       color: #28a746de;
-      background-color: #fffcf1;
+      // background-color: #fffcf1;
       &:hover {
         background-color: #28a746de;
         color: white;
       }
     }
   }
-}
 
-.follow-page {
-  text-align: center;
-  p {
-    margin-bottom: 0;
+  .pagination {
+    justify-content: center; //どっちにするか未定
     @include pc {
       font-size: 1.2rem;
     }
-  }
-  h3 {
-    @include sp {
-      font-size: 1.2rem;
+    li {
+      a {
+        border: none;
+        color: #28a746de;
+        &:hover {
+          border-radius: 15px;
+        }
+      }
     }
-    @include tab {
-      font-size: 1.6rem;
+    .active {
+      a {
+        background-color: #28a746de;
+        border-radius: 15px;
+      }
     }
   }
 }
 
+
+// フォロー、フォロワーページ
+
 .follow-index {
+  background-color: #fbfbfb;
   text-align: center;
-  margin: 0 auto;
-  width: 60%;
+  margin: 5rem auto;
+  width: 70%;
+  border-top: solid 5px #28a746de;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+  border-radius: 0 0 10px 10px;
+  padding: 3rem;
   @include pc {
-    width: 80%;
+    padding: 5rem;
   }
 
   p {
@@ -194,7 +220,7 @@ $pc: 1024px; //min
       color: black;
     }
   }
-  
+
   .pagination {
     justify-content: center; //どっちにするか未定
     @include pc {
