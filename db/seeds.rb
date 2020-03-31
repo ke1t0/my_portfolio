@@ -14,7 +14,13 @@
   )
 end
 
-p
+User.create!(
+  name: "Admin User",
+  email: "admin@test.com",
+  password: "password",
+  image: open("#{Rails.root}/db/fixtures/sports_tennis.png")
+  admin: true
+)
 
 users = User.order(:created_at)
 5.times do
