@@ -18,7 +18,7 @@ User.create!(
   name: "Admin User",
   email: "admin@test.com",
   password: "password",
-  image: open("#{Rails.root}/db/fixtures/sports_tennis.png")
+  image: open("#{Rails.root}/db/fixtures/sports_tennis.png"),
   admin: true
 )
 
