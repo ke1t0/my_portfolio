@@ -29,7 +29,7 @@ RSpec.describe Post, type: :model do
   end
 
   describe "#search" do
-    before do
+    before(:each) do
       @post1 = user.posts.create(
         body: "Hello, world!"
       )

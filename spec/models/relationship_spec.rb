@@ -17,13 +17,6 @@ RSpec.describe Relationship, type: :model do
     
         expect(follow.errors[:following_id]).to include("を入力してください")
       end
-
-      it "following and follower are not unique" do
-        # user.follow(other_user)
-        # follow = user.follow(other_user)
-        # follow.valid?
-        # expect(follow.errors[:following_id]).to include('a')
-      end
     end
 
     context "follower_id" do

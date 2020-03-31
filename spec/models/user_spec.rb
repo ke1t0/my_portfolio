@@ -54,17 +54,6 @@ RSpec.describe User, type: :model do
     end
   end
 
-  # imageが合っているか確かめられなかった
-  # describe "#image" do
-  #   context "invalid a image" do
-  #     it "only jpg jpeg gif png must be valid" do
-  #       user.image = "nature-2576652_1280.jpg"
-  #       user.save
-  #       expect(user.image).to eq "nature-2576652_1280.jpg"
-  #     end
-  #   end
-  # end
-
   describe "#introduction" do
     context "invalid a introduction" do
       it "is invalid an introduction too long" do
@@ -91,7 +80,7 @@ RSpec.describe User, type: :model do
   end
 
   describe "#search" do
-    before do
+    before(:each) do
       @other_user = User.create(
         name: "Mike Brawn",
         email: "mike@brawn.com",
