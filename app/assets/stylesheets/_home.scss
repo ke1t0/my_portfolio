@@ -30,8 +30,9 @@ $pc: 1024px; //min
 
   .home-title {
     color: #f4f4f4;
-    color: #000;
+    // color: #000;
     padding-top: 14rem;
+    font-weight: bold;
 
     @include sp {
       font-size: 3rem;
@@ -49,9 +50,10 @@ $pc: 1024px; //min
 
   .home-info {
     color: #f4f5f7;
-    color: #000;
-    // color: rgba(153, 255, 0, 0.767);
+    // color: #000;
+    color: #0e068ac4;
     padding-bottom: 20rem;
+    font-weight: bold;
 
     @include sp {
       font-size: 1.6rem;

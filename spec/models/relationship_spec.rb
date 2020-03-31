@@ -1,19 +1,37 @@
 require 'rails_helper'
 
 RSpec.describe Relationship, type: :model do
-  let(:user) {create(:user)}
-  let(:other_user) {create(:user)}
+  describe "#relationship" do
+    let(:user) {create(:user)}
+    let(:other_user) {create(:user)}
 
-  it "is valid" do
-    follow = user.follow(other_user)
+    context "following_id" do
+      it "is valid" do
+        follow = user.follow(other_user)
+        expect(follow).to be_valid
+      end
     
-    expect(follow).to be_valid
-  end
+      it "is invalid without a following_id" do
+        follow = user.following_relationships.build(following_id: nil)
+        follow.valid?
+    
+        expect(follow.errors[:following_id]).to include("を入力してください")
+      end
 
-  it "is invalid without a following_id" do
-    f = user.following_relationships.build(following_id: nil)
-    f.valid?
+      it "following and follower are not unique" do
+        # user.follow(other_user)
+        # follow = user.follow(other_user)
+        # follow.valid?
+        # expect(follow.errors[:following_id]).to include('a')
+      end
+    end
 
-    expect(f.errors[:following_id]).to include("を入力してください")
+    context "follower_id" do
+      it "is invalid without a follower_id" do
+        follow = user.follower_relationships.build(follower_id: nil)
+        follow.valid?
+        expect(follow.errors[:follower_id]).to include('を入力してください')
+      end
+    end
   end
 end

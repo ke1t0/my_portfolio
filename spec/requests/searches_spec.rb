@@ -5,7 +5,7 @@ RSpec.describe "Searches", type: :request do
     context "as an authenticated user" do
       let(:user) {create(:user)}
 
-      it "return a 200 response" do
+      it "returns a 200 response" do
         sign_in user
         get searches_user_path
         expect(response).to have_http_status 200
@@ -13,7 +13,7 @@ RSpec.describe "Searches", type: :request do
     end
 
     context "as a guest" do
-      it "return a 302 response" do
+      it "returns a 302 response" do
         get searches_user_path
         expect(response).to have_http_status 302
       end

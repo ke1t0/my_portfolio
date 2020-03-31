@@ -6,7 +6,7 @@ RSpec.describe "Posts", type: :request do
 
   describe "GET posts_path" do
     context "as an authenticated user" do
-      it "return a 200 response" do
+      it "returns a 200 response" do
         sign_in user
         get posts_path
         expect(response).to have_http_status 200
@@ -14,7 +14,7 @@ RSpec.describe "Posts", type: :request do
     end
 
     context "as aguest" do
-      it "return a 302 response" do
+      it "returns a 302 response" do
         get posts_path
         expect(response).to have_http_status 302
       end
@@ -28,7 +28,7 @@ RSpec.describe "Posts", type: :request do
 
   describe "GET post_path" do
     context "as an authenticated user" do
-      it "return a 200 response" do
+      it "returns a 200 response" do
         sign_in post.user
         get post_path(post)
         expect(response).to have_http_status 200
@@ -36,7 +36,7 @@ RSpec.describe "Posts", type: :request do
     end
 
     context "as a guest" do
-      it "return a 302 response" do
+      it "returns a 302 response" do
         get post_path(post)
         expect(response).to have_http_status 302
       end
@@ -46,5 +46,28 @@ RSpec.describe "Posts", type: :request do
         expect(response).to redirect_to new_user_session_path
       end
     end
+  end
+
+  describe "GET new_post" do
+    context "as an authenticated user" do
+      it "returns a 200 response" do
+        sign_in user
+        get new_post_path
+        expect(response).to have_http_status 200
+      end
+    end
+  end
+
+  describe "POST posts_path" do
+    # it "create a post" do
+    #   sign_in user
+    #   get new_post_path
+    #   post_attributes = FactoryBot.attributes_for(:post)
+    #   expect {
+    #     post posts_path, params: {
+    #       body: post_attributes
+    #     }
+    #   }.to change(user.posts, :count).by(1)
+    # end
   end
 end

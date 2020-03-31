@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     unless current_user.admin == true
       redirect_to posts_path
     end
-    @users = User.order(name: :asc).search(params[:search]).page(params[:page]).per(1)
+    @users = User.order(id: :asc).search(params[:search]).page(params[:page]).per(40)
   end
 
   def show
@@ -23,13 +23,13 @@ class UsersController < ApplicationController
 
   def following
     @user = User.find(params[:id])
-    @users = @user.following.page(params[:page]).per(1).order(created_at: :desc)
+    @users = @user.following.page(params[:page]).per(40).order(created_at: :desc)
     # render 'follow'
   end
 
   def followers
     @user = User.find(params[:id])
-    @users = @user.followers.page(params[:page]).per(1).order(created_at: :desc)
+    @users = @user.followers.page(params[:page]).per(40).order(created_at: :desc)
     # render 'follower'
   end
 

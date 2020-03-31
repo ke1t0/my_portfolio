@@ -32,6 +32,8 @@ $pc: 1024px; //min
   border-radius: 0 0 10px 20px;
   padding: 4rem;
   margin: 5rem auto;
+  margin-top: 10rem;
+
   @include sp {
     width: 95%;
   }
@@ -40,6 +42,7 @@ $pc: 1024px; //min
   }
   @include pc {
     width: 80%;
+    margin-top: 14rem;
   }
 
 
@@ -103,6 +106,12 @@ $pc: 1024px; //min
 
 .post-index {
   margin: 3rem auto;
+  margin-top: 10rem;
+
+  @include sp {
+    margin-top: 8rem;
+  }
+  
   @include pc {
     padding: 0 4rem;
   }
@@ -142,6 +151,7 @@ $pc: 1024px; //min
   .post-index {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 3rem;
 
     @include sp {
       justify-content: center;
@@ -163,8 +173,10 @@ $pc: 1024px; //min
       margin-bottom: 30px;
       text-align: center;
       @include sp {
-        width: 70%;
+        width: 34%;
         height: 22rem;
+        margin-right: 2rem;
+        margin-left: 2rem;
       }
       @include tab {
         width: 28%;
@@ -248,14 +260,27 @@ $pc: 1024px; //min
   @include sp {
     width: 80%;
     margin: 0 auto;
+    margin-top: 10rem;
   }
   @include tab {
     width: 70%;
     margin: 0 auto;
+    margin-top: 10rem;
     font-size: 1.2rem;
   }
   @include pc {
     font-size: 1.4rem;
+    margin-top: 14rem;
+  }
+  
+  .link-format {
+    font-size: 1.6rem;
+    @include tab {
+      font-size: 2rem;
+    }
+    @include pc {
+      font-size: 2.4rem;
+    }
   }
 
   .like-icon {
@@ -280,13 +305,13 @@ $pc: 1024px; //min
 
   .post-image img {
     @include sp {
-      width: 8rem;
-    }
-    @include tab {
       width: 10rem;
     }
+    @include tab {
+      width: 14rem;
+    }
     @include pc {
-      width: 12rem;
+      width: 20rem;
     }
   }
 

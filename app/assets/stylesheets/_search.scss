@@ -27,11 +27,16 @@ $pc: 1024px; //min
   border-radius: 0 0 10px 10px;
   width: 70%;
   margin: 5rem auto;
+  margin-top: 10rem;
   padding: 5rem;
   text-align: center;
 
   @include sp {
     width: 95%;
+  }
+
+  @include pc {
+    margin-top: 14rem;
   }
   
   .nav-tabs {
@@ -46,6 +51,8 @@ $pc: 1024px; //min
   }
 
   .tab-content {
+    overflow: auto;
+    height: 50rem;
     .tab-pane h4 {
       padding-top: 3rem;
     }

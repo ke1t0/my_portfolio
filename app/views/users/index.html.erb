@@ -20,7 +20,7 @@
           <td><%= link_to user.name, user_path(user), class: "link-format" %></td>
           <td><%= user.id %></td>
           <td><%= user.created_at.to_s(:datetime_jp) %></td>
-          <td><%= link_to "削除", user_path(user), class: "delete-btn", method: :destroy, data: { confirm: '削除しますか？' } %></td>
+          <td><%= link_to "削除", user_path(user), class: "delete-btn", method: :delete, data: { confirm: '削除しますか？' } %></td>
         </tr>
       <% end %>
     </table>

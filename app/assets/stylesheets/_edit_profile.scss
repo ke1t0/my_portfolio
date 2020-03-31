@@ -28,8 +28,13 @@ $pc: 1024px; //min
   padding: 4rem;
   width: 70%;
   margin: 0 auto;
-  margin-top: 5rem;
+  margin-top: 10rem;
   text-align: center;
+
+  @include pc {
+    margin-top: 14rem;
+  }
+  
   .post-btn {
     @include sp {
       font-size: 1.6rem;
