@@ -57,17 +57,4 @@ RSpec.describe "Posts", type: :request do
       end
     end
   end
-
-  describe "POST posts_path" do
-    # it "create a post" do
-    #   sign_in user
-    #   get new_post_path
-    #   post_attributes = FactoryBot.attributes_for(:post)
-    #   expect {
-    #     post posts_path, params: {
-    #       body: post_attributes
-    #     }
-    #   }.to change(user.posts, :count).by(1)
-    # end
-  end
 end

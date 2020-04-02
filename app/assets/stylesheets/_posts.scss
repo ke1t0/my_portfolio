@@ -319,6 +319,19 @@ $pc: 1024px; //min
     p {
       margin-bottom: 0.1rem;
     }
+
+    .link-format {
+      @include sp {
+        font-size: 1.2rem;
+      }
+      @include tab {
+        font-size: 1.6rem;
+      }
+      @include pc {
+        font-size: 1.8rem;
+      }
+    }
+
     .comment-form {
       textarea {
         border: solid 1px #28a746de;

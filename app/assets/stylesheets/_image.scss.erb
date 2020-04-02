@@ -21,32 +21,40 @@ $pc: 1024px;
 }
 
 
-.home-page {
+.text {
   z-index: 0;
-  <%# background-color: rgb(0,163,175); %>
   background-size: contain;
   background-repeat: no-repeat;
   position: relative;
+  background-size: 150px;
 }
 
-.home-page::before {
+.text::before {
   content: '';
-  background-image: url("<%= asset_path('nature-2576652_1280.jpg') %>");
-  opacity: 0.7;
+  background-image: url("<%= asset_path('tennis_ball.png') %>");
+  opacity: 0.4;
   filter: blur(5px);
   position: absolute;
-  top: 0px;
+  top: -90px;
   left: 0px;
   right: 0px;
   bottom: 0px;
   z-index: -1;
 
   @include sp {
-    background-size: cover;
-    left: -80px;
+    <%# background-size: cover; %>
+    background-size: 120px;
+    left: -30px;
+    opacity: 1;
   }
 
   @include tab {
-    background-size: cover;
+    <%# background-size: cover; %>
+    background-size: 150px;
+  }
+
+  @include pc {
+    background-size: 200px;
+    left: -60px;
   }
 }
