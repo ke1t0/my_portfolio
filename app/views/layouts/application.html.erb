@@ -15,10 +15,10 @@
   </head>
 
   <body>
-    <div class="text">
+
     <header>
       <nav class="navbar navbar-expand-lg">
-        <%= link_to "タイトル", root_path, class: "title" %>
+        <%= link_to "tenniction", root_path, class: "title" %>
         <button class="navbar-toggler hamburger-icon" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -57,10 +57,11 @@
         </div>
       </nav>
     </header>
+        <div class="text">
+          <%= yield %>
+        </div>
 
-        <%= yield %>
 
-    </div>
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

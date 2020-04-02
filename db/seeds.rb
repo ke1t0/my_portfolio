@@ -1,4 +1,4 @@
-50.times do |n|
+30.times do |n|
   name = Faker::Name.name
   email = "example-#{n+1}@main.com"
   password = "password"
@@ -30,36 +30,26 @@ users = User.order(:created_at)
 end
 
 
-# # フォロー
+# フォロー完成
 users = User.all
 user = users.last
-following = users[30..50]
-followers = users[40..45]
+following = users[10..29]
+followers = users[20..29]
 following.each {|followed| user.follow(followed)}
 followers.each {|follower| follower.follow(user)}
 
-# # いいね
-# user2 = users.second
-# posts = Post.all
-# post = Post.last
-# like_post1 = Post.ids.sort[220..253]
-# like_post1.each {|like| user.likes.create!(post_id: like)}
+# いいね
+posts = Post.all
+like_post1 = posts[140..153]
+like_post1.each {|like| user.likes.create!(post_id: like.id)}
 
-# like_post2 = Post.ids.sort[230..240]
-# like_post2.each {|like| user2.likes.create!(post_id: like)}
+user2 = User.second
+like_post2 = posts[148..150]
+like_post2.each {|like| user2.likes.create!(post_id: like.id)}
 
-# # コメント
-# # users = User.order(:created_at).take(6)
-# # comments = Faker::Lorem.sentence
-# # users.each {|user| user.comments.create!(post_id: post.id, text: comments)}
+# コメント
 
-# # 2.times do
-#   text = Faker::Lorem.sentence
-#   # users = User.order(:created_at).take(6)
-#   # users.each {|user| user.comments.create!(post_id: post.id, text: text)}
-# # end
+comments = Faker::Lorem.sentence
+like_post1.each {|post| user.comments.create!(post_id: post.id, text: comments)}
 
-
-# # post2 = Post.find(304)
-# post_id = posts[250..254]
-# post_id.each {|post| user.comments.create!(post_id: post.id, text: text)}
+like_post2.each {|post| user2.comments.create!(post_id: post.id, text: comments)}

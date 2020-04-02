@@ -128,8 +128,14 @@ RSpec.describe "Users", type: :request do
           delete user_registration_path
         }.to change(User, :count).by(-1)
       end
+
+      it "like count 1" do
+        # admin_user = create(:user, :admin)
+        # sign_in admin_user
+        # get 
+      end
   
-      it "redirect to users_path after delete" do
+      it "redirect to root_path after delete" do
         admin_user = create(:user, :admin)
         sign_in admin_user
         get users_path
