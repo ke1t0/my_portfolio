@@ -15,8 +15,6 @@ class CommentsController < ApplicationController
 
   def destroy
     post = Post.find(params[:post_id])
-    # @comment = post.comments.find(params[:id])
-    # @comment.destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
     redirect_back(fallback_location: post_path(post.id))

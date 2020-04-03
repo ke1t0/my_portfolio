@@ -21,11 +21,8 @@ $pc: 1024px; //min
   }
 }
 
-// ここからbootstrap4
-
 // 新規投稿
 .new-post {
-  // background-color: #fcfcfc;
   background-color: #fbfbfb;
   border-top: solid 5px #28a746de;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
@@ -164,7 +161,6 @@ $pc: 1024px; //min
     }
 
     .postcard {
-      // background-color: #fcfcfc;
       background-color: #fbfbfb;
       border-top: solid 5px #28a746de;
       box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
@@ -249,7 +245,6 @@ $pc: 1024px; //min
 
 .post-show {
   background-color: #fbfbfb;
-  // background-color: #fcfcfc;
   border-top: solid 5px #28a746de;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
   border-radius: 0 0 10px 10px;

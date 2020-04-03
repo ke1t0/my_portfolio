@@ -37,8 +37,7 @@ users = User.order(:created_at)
   users.each{|user| user.posts.create!(body: body, image: image)}
 end
 
-
-# フォロー完成
+# フォロー
 users = User.all
 user = users.last
 following = users[10..29]
@@ -56,7 +55,6 @@ like_post2 = posts[148..150]
 like_post2.each {|like| user2.likes.create!(post_id: like.id)}
 
 # コメント
-
 comments = Faker::Lorem.sentence
 like_post1.each {|post| user.comments.create!(post_id: post.id, text: comments)}
 

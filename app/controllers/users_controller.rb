@@ -10,9 +10,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
-    @like_posts = current_user.likes
-    @comment_posts = current_user.comments
+    @posts = @user.posts.order(created_at: :desc)
+    @like_posts = current_user.likes.order(created_at: :desc)
+    @comment_posts = current_user.comments.order(created_at: :desc)
   end
 
   def destroy
@@ -24,13 +24,11 @@ class UsersController < ApplicationController
   def following
     @user = User.find(params[:id])
     @users = @user.following.page(params[:page]).per(40).order(created_at: :desc)
-    # render 'follow'
   end
 
   def followers
     @user = User.find(params[:id])
     @users = @user.followers.page(params[:page]).per(40).order(created_at: :desc)
-    # render 'follower'
   end
 
   def destroy_image

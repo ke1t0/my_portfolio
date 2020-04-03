@@ -1,21 +1,22 @@
-$sp: 575px;
-$tab: 768px;
-$pc: 1024px;
+$sp: 767px; //max
+$tab: 768px; //min
+$tab-max: 1023px;
+$pc: 1024px; //min
 
 @mixin sp {
-  @media (max-width: 575px) {
+  @media (max-width: ($sp)) {
     @content;
   }
 }
 
 @mixin tab {
-  @media (min-width: 768px) {
+  @media screen and (min-width: ($tab)) and (max-width: ($tab-max)) {
     @content;
   }
 }
 
 @mixin pc {
-  @media (min-width: 1024px) {
+  @media (min-width: ($pc)) {
     @content;
   }
 }
@@ -42,14 +43,12 @@ $pc: 1024px;
   z-index: -1;
 
   @include sp {
-    <%# background-size: cover; %>
     background-size: 120px;
     left: -30px;
     opacity: 1;
   }
 
   @include tab {
-    <%# background-size: cover; %>
     background-size: 150px;
   }
 

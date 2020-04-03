@@ -1,5 +1,6 @@
-$sp: 575px; //max
+$sp: 767px; //max
 $tab: 768px; //min
+$tab-max: 1023px;
 $pc: 1024px; //min
 
 @mixin sp {
@@ -9,7 +10,7 @@ $pc: 1024px; //min
 }
 
 @mixin tab {
-  @media (min-width: ($tab)) {
+  @media screen and (min-width: ($tab)) and (max-width: ($tab-max)) {
     @content;
   }
 }

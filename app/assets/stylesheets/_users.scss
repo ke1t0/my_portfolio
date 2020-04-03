@@ -1,8 +1,9 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-$sp: 575px; //max
+$sp: 767px; //max
 $tab: 768px; //min
+$tab-max: 1023px;
 $pc: 1024px; //min
 
 @mixin sp {
@@ -12,7 +13,7 @@ $pc: 1024px; //min
 }
 
 @mixin tab {
-  @media (min-width: ($tab)) {
+  @media screen and (min-width: ($tab)) and (max-width: ($tab-max)) {
     @content;
   }
 }
@@ -86,7 +87,6 @@ $pc: 1024px; //min
 
   .nav-tabs {
     margin-top: 1.2rem;
-    // background-color: #fff;
     .nav-link {
       color: #000;
     }
@@ -182,7 +182,6 @@ $pc: 1024px; //min
     .search-user-btn {
       padding: 0.15rem 0.3;
       color: #28a746de;
-      // background-color: #fffcf1;
       &:hover {
         background-color: #28a746de;
         color: white;
@@ -191,7 +190,7 @@ $pc: 1024px; //min
   }
 
   .pagination {
-    justify-content: center; //どっちにするか未定
+    justify-content: center;
     @include pc {
       font-size: 1.2rem;
     }
@@ -212,7 +211,6 @@ $pc: 1024px; //min
     }
   }
 }
-
 
 // フォロー、フォロワーページ
 
@@ -240,7 +238,7 @@ $pc: 1024px; //min
   }
 
   .pagination {
-    justify-content: center; //どっちにするか未定
+    justify-content: center;
     @include pc {
       font-size: 1.2rem;
     }
