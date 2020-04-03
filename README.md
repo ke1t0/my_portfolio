@@ -1,24 +1,24 @@
-# README
+# 概要
+[tenniction](https://shrouded-headland-41043.herokuapp.com/)はソフトテニスをしている人たちと繋がって一緒にソフトテニスをする仲間を集めたり、
+技術などためになることを発信したりできるサービスです。
+**tennis**と**connection**を組み合わせて**tenniction**としました。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 何ができるのか（機能）
+[tenniction](https://shrouded-headland-41043.herokuapp.com/)は以下のことができます。
 
-Things you may want to cover:
+* ログイン
 
-* Ruby version
+* 記事の投稿/削除する
 
-* System dependencies
+* 記事にコメントする
 
-* Configuration
+* 記事にいいねする
 
-* Database creation
+* フォロー/アンフォロー機能
 
-* Database initialization
+## 何を使っているか（技術）
+* Rails
 
-* How to run the test suite
+* Heroku
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Javascript
