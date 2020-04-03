@@ -22,6 +22,14 @@ User.create!(
   admin: true
 )
 
+User.create!(
+  name: "Test User",
+  email: "test@test.mail",
+  password: "password",
+  image: open("#{Rails.root}/db/fixtures/sports_tennis.png"),
+  introduction: "テストユーザーです。"
+)
+
 users = User.order(:created_at)
 5.times do
   body = Faker::Lorem.sentence
