@@ -19,6 +19,8 @@
 ## 何を使っているか（技術）
 * Rails
 
-* Heroku
+* ajax処理
 
 * Javascript
+
+* Heroku
