@@ -37,6 +37,24 @@ users = User.order(:created_at)
   users.each{|user| user.posts.create!(body: body, image: image)}
 end
 
+last_user = User.find_by(name: "Test User")
+last_user.posts.create!(
+  body: "ポジションをどっちにするか迷っている方へ
+
+  後衛の楽しさ
+  ✅試合展開をコントロールできる
+  ✅前衛よりも多く球を打てる
+  ✅前衛の逆を突いた時
+  
+  前衛の楽しさ
+  ✅アグレッシブなプレー
+  ✅得点源になれる
+  ✅相手後衛を惑わす事ができる
+  
+  参考になれば嬉しいです！",
+  image: open("#{Rails.root}/db/fixtures/sports_tennis.png")
+)
+
 # フォロー
 users = User.all
 user = users.last
