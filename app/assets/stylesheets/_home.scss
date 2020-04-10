@@ -24,6 +24,14 @@ $pc: 1024px; //min
 .home-page {
   text-align: center;
 
+  @include sp {
+    height: 80rem;
+  }
+
+  @include tab {
+    height: 100rem;
+  }
+
   p {
     margin-bottom: 0;
   }
