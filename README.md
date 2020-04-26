@@ -26,3 +26,10 @@
 * Javascript
 
 * Heroku
+
+## 今後やること
+* Herokuからawsへ移行(現在aws学習中)
+
+* Docker学習
+
+* CircleCI学習
