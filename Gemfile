@@ -22,6 +22,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'faker'
 # gem 'fog-aws'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -46,6 +47,10 @@ group :test do
   gem 'webdrivers'
   gem 'launchy', '~> 2.4.3'
   gem 'database_cleaner'
+end
+
+group :production, :staging do
+    gem 'unicorn'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
