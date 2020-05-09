@@ -1,5 +1,7 @@
 <div class="post-show">
-  <%= flash[:danger] %>
+  <div class="comment-message">
+    <%= flash[:danger] %>
+  </div>
   <h2>
     <%= link_to @post.user.name, user_path(@post.user.id), class: "link-format" %>
   </h2>
@@ -17,26 +19,11 @@
     <hr>
   
   <div class="comment">
-      <%= form_with(model: [@post, @comment], local: true, class: "comment-form") do |f| %>
-        <%= f.text_area :text %>
+      <%= form_with(model: [@post, @comment], class: "comment-form") do |f| %>
+        <%= f.text_area :text, autocomplete: "text" %>
         <div class="comment-btn"><%= f.submit "コメントする", class: "btn btn-outline-success" %></div>
       <% end %>
 
-      <% @comments.each do |comment| %>
-        <hr class="partition">
-        <p>
-          <%= link_to comment.user.name, user_path(comment.user), class: "link-format" %>
-          <%= simple_format(comment.text) %>
-        </p>
-        <p class="datetime">
-          <%= comment.created_at.to_s(:datetime_jp) %>
-        </p>
-        <% if current_user.id == comment.user.id || current_user.admin == true %>
-          <%= link_to "削除", post_comment_path(id: comment.id, post_id: comment.post_id), class: "delete-post-btn", method: :delete, data: { confirm: '削除しますか？' } %>
-        <% end %>
-        
-        
-        <%# <hr> %>
-      <% end %>
+      <%= render 'comments_index' %>
   </div>
 </div>

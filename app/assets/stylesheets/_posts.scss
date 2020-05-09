@@ -267,6 +267,19 @@ $pc: 1024px; //min
     font-size: 1.4rem;
     margin-top: 14rem;
   }
+
+  .comment-message {
+    color: red;
+    @include sp {
+      font-size: 1.2rem;
+    }
+    @include tab {
+      font-size: 1.6rem;
+    }
+    @include pc {
+      font-size: 2rem;
+    }
+  }
   
   .link-format {
     font-size: 1.6rem;

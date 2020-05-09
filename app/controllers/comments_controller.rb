@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
       flash[:success] = "コメントしました"
       redirect_back(fallback_location: post_path(post.id))
     else
-      flash[:danger] = "コメントできません"
+      flash[:danger] = "コメントに失敗しました"
       redirect_back(fallback_location: post_path(post.id))
     end
   end
