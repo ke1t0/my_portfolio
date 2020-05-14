@@ -25,11 +25,9 @@
 
 * Javascript
 
-* Heroku
+* aws(EC2, RDS)
 
-## 今後やること
-* Herokuからawsへ移行(現在aws学習中)
-
+## 今後やりたいこと
 * Docker学習
 
 * CircleCI学習
