@@ -71,9 +71,3 @@ like_post1.each {|like| user.likes.create!(post_id: like.id)}
 user2 = User.second
 like_post2 = posts[148..150]
 like_post2.each {|like| user2.likes.create!(post_id: like.id)}
-
-# コメント
-comments = Faker::Lorem.sentence
-like_post1.each {|post| user.comments.create!(post_id: post.id, text: comments)}
-
-like_post2.each {|post| user2.comments.create!(post_id: post.id, text: comments)}
