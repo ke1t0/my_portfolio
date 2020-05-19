@@ -1,10 +1,10 @@
 # 概要
-[tenniction](https://shrouded-headland-41043.herokuapp.com/)はソフトテニスをしている人たちと繋がって一緒にソフトテニスをする仲間を集めたり、
+[tenniction](https://www.tenniction.work)はソフトテニスをしている人たちと繋がって一緒にソフトテニスをする仲間を集めたり、
 技術などためになることを発信したりできるサービスです。
 **tennis**と**connection**を組み合わせて**tenniction**としました。
 
 ## 何ができるのか（機能）
-[tenniction](https://shrouded-headland-41043.herokuapp.com/)は以下のことができます。
+[tenniction](https://www.tenniction.work)は以下のことができます。
 
 * ログイン
 
@@ -25,9 +25,13 @@
 
 * Javascript
 
+* Rspec
+
 * aws(EC2, RDS)
 
 ## 今後やりたいこと
 * Docker学習
 
 * CircleCI学習
+
+* UI/UXの向上(フロントエンドの学習をしてVueで書いてみる)
