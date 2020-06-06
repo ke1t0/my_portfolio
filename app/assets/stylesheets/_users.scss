@@ -258,4 +258,23 @@ $pc: 1024px; //min
       }
     }
   }
+
+  .followed-btn {
+    background-color: #28a746de;
+    color: white;
+    border-radius: 12px;
+    font-size: 1rem;
+    &:hover {
+      color: white;
+    }
+  }
+
+  .follow-btn {
+    border: solid 1px #28a746de;
+    color: #28a746de;
+    border-radius: 12px;
+    &:hover {
+      color: #28a746de;
+    }
+  }
 }
