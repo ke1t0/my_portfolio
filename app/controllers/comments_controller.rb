@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
 
+  # コメント作成
   def create
     post = Post.find(params[:post_id])
     @comment = post.comments.build(comment_params)
@@ -13,6 +14,7 @@ class CommentsController < ApplicationController
     end
   end
 
+  # コメント削除
   def destroy
     post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])

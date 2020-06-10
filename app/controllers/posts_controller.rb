@@ -1,17 +1,20 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
 
+  # 投稿一覧
   def index
     @posts = Post.order(created_at: :desc)
     @posts = Post.page(params[:page]).per(40).order(created_at: :desc)
   end
 
+  # 投稿詳細
   def show
     @post = Post.find(params[:id])
     @comments = @post.comments
     @comment = Comment.new
   end
 
+  # 投稿作成
   def new
     @post = Post.new
   end
@@ -26,6 +29,7 @@ class PostsController < ApplicationController
     end
   end
 
+  # 投稿削除
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
