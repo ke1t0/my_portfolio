@@ -1,3 +1,4 @@
+# いいね機能モデル ユーザーと投稿に紐付け
 class Like < ApplicationRecord
   belongs_to :user
   belongs_to :post

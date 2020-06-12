@@ -1,3 +1,4 @@
+# ユーザーの投稿、いいね、コメント、フォロー機能のモデル
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
