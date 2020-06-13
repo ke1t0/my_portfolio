@@ -2,13 +2,13 @@
   <div class="row">
     <div class="col-sm-6 post-new">
       <%= form_with model: @post do |f| %>
-    
         <%= f.text_area :body, class: "post-new-form" %>
         <%= f.hidden_field :user_id, value: current_user.id %>
         <p><%= f.file_field :image, class: "post-image" %></p>
         <p><%= f.submit "投稿", class: "btn post-btn" %></p>
       <% end %>
     </div>
+
     <div class="col-sm-4 post-example">
       <div class="post-example-box">
         <h4>例1</h4>
@@ -29,6 +29,7 @@
         </p>
         <br>
       </div>
+
       <div class="d-none d-sm-block">
         <hr class="partition">
         <h4>例2</h4>
@@ -44,5 +45,4 @@
     </div>
     <div class="offset-sm-2"></div>
   </div>
-
  </div> 

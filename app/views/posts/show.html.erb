@@ -10,20 +10,21 @@
   <p class="datetime">
     <%= @post.created_at.to_s(:datetime_jp) %>
   </p>
+
   <div id="show_like_<%= @post.id %>">
     <%= render "likes/like", post: @post %>
   </div>
-    <% if current_user == @post.user || current_user.admin == true %>
-      <%= link_to "削除", post_path(@post), class: "delete-post-btn", method: :delete, data: { confirm: '削除しますか？' } %>
-    <% end %>
-    <hr>
+
+  <% if current_user == @post.user || current_user.admin == true %>
+    <%= link_to "削除", post_path(@post), class: "delete-post-btn", method: :delete, data: { confirm: '削除しますか？' } %>
+  <% end %>
+  <hr>
   
   <div class="comment">
       <%= form_with(model: [@post, @comment], class: "comment-form") do |f| %>
         <%= f.text_area :text, autocomplete: "text" %>
         <div class="comment-btn"><%= f.submit "コメントする", class: "btn btn-outline-success" %></div>
       <% end %>
-
       <%= render 'comments_index' %>
   </div>
 </div>

@@ -1,13 +1,13 @@
 <% @comments.each do |comment| %>
-        <hr class="partition">
-        <p>
-          <%= link_to comment.user.name, user_path(comment.user), class: "link-format" %>
-          <%= simple_format(comment.text) %>
-        </p>
-        <p class="datetime">
-          <%= comment.created_at.to_s(:datetime_jp) %>
-        </p>
-        <% if current_user.id == comment.user.id || current_user.admin == true %>
-          <%= link_to "削除", post_comment_path(id: comment.id, post_id: comment.post_id), class: "delete-post-btn", method: :delete, data: { confirm: '削除しますか？' } %>
-        <% end %>
-      <% end %>
+  <hr class="partition">
+  <p>
+    <%= link_to comment.user.name, user_path(comment.user), class: "link-format" %>
+    <%= simple_format(comment.text) %>
+  </p>
+  <p class="datetime">
+    <%= comment.created_at.to_s(:datetime_jp) %>
+  </p>
+  <% if current_user.id == comment.user.id || current_user.admin == true %>
+    <%= link_to "削除", post_comment_path(id: comment.id, post_id: comment.post_id), class: "delete-post-btn", method: :delete, data: { confirm: '削除しますか？' } %>
+  <% end %>
+<% end %>

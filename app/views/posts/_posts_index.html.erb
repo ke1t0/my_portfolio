@@ -1,9 +1,10 @@
 <div class="post-index">
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-  
   <%= paginate @posts, class: "pagination" %>
   <div class="post-index">
+
+  <%# 投稿の一覧表示 %>
     <% posts.each do |post| %>
       <div class="postcard">
         <div class="post-user-name">
