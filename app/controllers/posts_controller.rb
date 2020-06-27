@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # 投稿一覧
   def index
     @posts = Post.order(created_at: :desc)
-    @posts = Post.page(params[:page]).per(40).order(created_at: :desc)
+    @posts = Post.page(params[:page]).per(20).order(created_at: :desc)
   end
 
   # 投稿詳細
