@@ -1,6 +1,9 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import "variables-storage";
+
 $sp: 767px; //max
 $tab: 768px; //min
 $tab-max: 1023px;
@@ -28,9 +31,9 @@ $pc: 1024px; //min
 
 .user-profile {
   background-color: #fbfbfb;
-  border-top: solid 5px #28a746de;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
-  border-radius: 0 0 10px 10px;
+  border-top: solid 5px #31dfbf;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.22);
+  border-radius: 7px 7px;
   padding: 4rem;
   width: 70%;
   margin: 5rem auto;
@@ -38,7 +41,7 @@ $pc: 1024px; //min
   margin-top: 10rem;
 
   @include sp {
-    width: 95%;
+    width: 85%;
   }
 
   @include pc {
@@ -60,14 +63,14 @@ $pc: 1024px; //min
     padding: 0.4rem 2rem;
   }
   .follow-btn {
-    border: solid 1px #28a746de;
-    color: #28a746de;
+    border: solid 1px #31dfbf;
+    color: #31dfbf;
     &:hover {
-      color: #28a746de;
+      color: #31dfbf;
     }
   }
   .followed-btn {
-    background-color: #28a746de;
+    background-color: #31dfbf;
     color: white;
     &:hover {
       color: white;
@@ -75,12 +78,12 @@ $pc: 1024px; //min
   }
 
   .edit-profile-btn {
-    color: #28a746de;
-    border: solid 0.1rem #28a746de;
+    color: #31dfbf;
+    border: solid 0.1rem #31dfbf;
     border-radius: 10px;
     padding: 0.5rem 0.7rem;
     &:hover {
-      background-color: #28a746de;
+      @include bg-color;
       color: #fff;
     }
   }
@@ -92,7 +95,7 @@ $pc: 1024px; //min
     }
     .nav-link.active {
       color: #fff;
-      background-color: #28a746de;
+      @include bg-color;
     }
   }
 
@@ -110,6 +113,15 @@ $pc: 1024px; //min
       }
       margin: 0.5rem 0;
     }
+  }
+  
+  .heart-icon {
+    font-size: 1.2rem;
+    padding-right: 1rem;
+  }
+  
+  .comment-icon {
+    font-size: 1.2rem;
   }
 }
 
@@ -138,7 +150,7 @@ $pc: 1024px; //min
       @include pc {
         font-size: 1.4rem;
       }
-      background-color: #28a746de;
+      @include bg-color;
       color: rgb(240, 240, 240);
       &:first-child {
         padding: 0 1rem;
@@ -165,15 +177,15 @@ $pc: 1024px; //min
         @include pc {
           font-size: 1.2rem;
           line-height: 2.4rem;
-          border: solid 2px #28a746de;
+          border: solid 2px #31dfbf;
         }
         box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
         margin-bottom: 1rem;
-        border: solid 1px #28a746de;
+        border: solid 1px #31dfbf;
         border-radius: 12px;
         &:focus {
           @include pc {
-            border: solid 2px #28a746de;
+            border: solid 2px #31dfbf;
           }
           border-radius: 12px;
         }
@@ -181,9 +193,9 @@ $pc: 1024px; //min
     }
     .search-user-btn {
       padding: 0.15rem 0.3;
-      color: #28a746de;
+      color: #31dfbf;
       &:hover {
-        background-color: #28a746de;
+        background-color: #31dfbf;
         color: white;
       }
     }
@@ -197,7 +209,7 @@ $pc: 1024px; //min
     li {
       a {
         border: none;
-        color: #28a746de;
+        color: #31dfbf;
         &:hover {
           border-radius: 15px;
         }
@@ -205,7 +217,7 @@ $pc: 1024px; //min
     }
     .active {
       a {
-        background-color: #28a746de;
+        background-color: #31dfbf;
         border-radius: 15px;
       }
     }
@@ -220,7 +232,7 @@ $pc: 1024px; //min
   margin: 5rem auto;
   margin-top: 10rem;
   width: 70%;
-  border-top: solid 5px #28a746de;
+  border-top: solid 5px #31dfbf;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
   border-radius: 0 0 10px 10px;
   padding: 3rem;
@@ -245,7 +257,7 @@ $pc: 1024px; //min
     li {
       a {
         border: none;
-        color: #28a746de;
+        color: #31dfbf;
         &:hover {
           border-radius: 15px;
         }
@@ -253,14 +265,14 @@ $pc: 1024px; //min
     }
     .active {
       a {
-        background-color: #28a746de;
+        background-color: #31dfbf;
         border-radius: 15px;
       }
     }
   }
 
   .followed-btn {
-    background-color: #28a746de;
+    background-color: #31dfbf;
     color: white;
     border-radius: 12px;
     font-size: 1rem;
@@ -270,11 +282,11 @@ $pc: 1024px; //min
   }
 
   .follow-btn {
-    border: solid 1px #28a746de;
-    color: #28a746de;
+    border: solid 1px #31dfbf;
+    color: #31dfbf;
     border-radius: 12px;
     &:hover {
-      color: #28a746de;
+      color: #31dfbf;
     }
   }
 }

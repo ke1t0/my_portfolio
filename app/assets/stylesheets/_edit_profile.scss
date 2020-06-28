@@ -1,3 +1,5 @@
+@import "variables-storage";
+
 $sp: 767px; //max
 $tab: 768px; //min
 $tab-max: 1023px;
@@ -23,14 +25,17 @@ $pc: 1024px; //min
 
 .edit-profile {
   background-color: #fbfbfb;
-  border-top: solid 5px #28a746de;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
-  border-radius: 0 0 10px 10px;
+  border-top: solid 5px #31dfbf;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.22);
+  border-radius: 7px 7px;
   padding: 4rem;
   width: 70%;
-  margin: 0 auto;
-  margin-top: 10rem;
+  margin: 10rem auto 5rem;
   text-align: center;
+
+  @include sp {
+    width: 85%;
+  }
 
   @include pc {
     margin-top: 14rem;
@@ -40,16 +45,16 @@ $pc: 1024px; //min
     @include sp {
       font-size: 1.6rem;
     }
-    border: solid 2px #28a746de;
-    border-radius: 15px;
+    border: solid 2px #31dfbf;
+    border-radius: 10px;
     background-color: #fff;
-    color: #28a746de;
+    color: #31dfbf;
     font-size: 1.6rem;
     font-weight: bold;
     margin-top: 1rem;
     width: 10rem;
     &:hover {
-      background-color: #28a746de;
+      @include bg-color;
       color: white;
       font-weight: bold;
     }
@@ -71,7 +76,7 @@ $pc: 1024px; //min
 
     input,
     textarea {
-      border: solid 1px #28a746de;
+      border: solid 1px #31dfbf;
     }
 
     input {
@@ -104,7 +109,8 @@ $pc: 1024px; //min
     }
 
     .edit-user-image {
-      color: #28a746de;
+      color: red;
+      // font-weight: bold;
     }
   }
 }

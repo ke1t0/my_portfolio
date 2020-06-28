@@ -21,6 +21,7 @@
 @import "search";
 @import "edit_profile";
 @import "edit_password";
+@import "variables-storage";
 
 $sp: 767px; //max
 $tab: 768px; //min
@@ -50,6 +51,7 @@ html {
     "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
     "MS PGothic", sans-serif;
   font-size: 62.5%;
+  background-color: rgb(245, 245, 245);
 }
 
 body,
@@ -62,6 +64,10 @@ h6,
 p {
   padding: 0;
   margin: 0;
+}
+
+.text {
+  background-color: rgb(245, 245, 245);
 }
 
 #error_explanation {
@@ -145,10 +151,12 @@ header {
     margin-left: 1rem;
 
     @include sp {
-      font-size: 2rem;
+      font-size: 2.4rem;
+      font-weight: bold;
     }
     @include tab {
       font-size: 2.4rem;
+      font-weight: bold;
     }
   }
 
@@ -166,14 +174,14 @@ header {
         @include pc {
           font-size: 1.2rem;
           line-height: 2.4rem;
-          border: solid 2px #28a746de;
+          border: solid 2px #31dfbf;
         }
-        border: solid 1px #28a746de;
+        border: solid 1px #31dfbf;
         border-radius: 12px;
         box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
         &:focus {
           @include pc {
-            border: solid 2px #28a746de;
+            border: solid 2px #31dfbf;
           }
           border-radius: 12px;
         }
@@ -184,7 +192,7 @@ header {
       color: #5d627b;
       box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
       &:hover {
-        background-color: #28a746de;
+        @include bg-color;
         color: white;
       }
       @include pc {
@@ -202,15 +210,20 @@ header {
   }
 }
 
+// .posts_index {
+//   background-color: rgb(245, 245, 245);
+//   padding-bottom: 1rem;
+// }
+
 .title {
   @include tab {
-    font-size: 2rem;
+    font-size: 3rem;
   }
   @include pc {
     padding: 1rem 0;
     font-size: 3rem;
   }
-  color: #333333;
+  @include font-color;
   &:hover {
     text-decoration: none;
   }
@@ -221,19 +234,28 @@ header {
   font-size: 1.2rem;
 
   @include sp {
-    font-size: 1rem;
-    color: #28a746de;
+    font-size: 1.6rem;
+    // color: #28a746de;
+    color: white;
+    font-weight: bold;
+    @include bg-color;
+    padding: 0 7px;
+    border-radius: 10px;
   }
   @include tab {
-    color: #28a746de;
+    color: white;
+    @include bg-color;
+    padding: 0 7px;
+    border-radius: 10px;
   }
   @include pc {
-    border-radius: 12px;
+    border-radius: 10px;
     padding: 0.7rem;
     margin-left: 3rem;
     display: flex;
+    color: white;
+    @include bg-color;
     &:hover {
-      background-color: #28a746de;
       color: #fff;
       transition-duration: 0.5s;
       text-decoration: none;

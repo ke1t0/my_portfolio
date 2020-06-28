@@ -1,3 +1,5 @@
+@import "variables-storage";
+
 $sp: 767px; //max
 $tab: 768px; //min
 $tab-max: 1023px;
@@ -37,7 +39,7 @@ $pc: 1024px; //min
   }
 
   .home-title {
-    color: rgb(42, 160, 42);
+    @include font-color;
     padding-top: 14rem;
     font-weight: bold;
 

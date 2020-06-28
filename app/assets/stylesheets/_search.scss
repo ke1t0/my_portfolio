@@ -1,3 +1,5 @@
+@import "variables-storage";
+
 $sp: 767px; //max
 $tab: 768px; //min
 $tab-max: 1023px;
@@ -23,7 +25,7 @@ $pc: 1024px; //min
 
 .search-page {
   background-color: #fbfbfb;
-  border-top: solid 5px #28a746de;
+  border-top: solid 5px #31dfbf;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
   border-radius: 0 0 10px 10px;
   width: 70%;
@@ -33,7 +35,7 @@ $pc: 1024px; //min
   text-align: center;
 
   @include sp {
-    width: 95%;
+    width: 85%;
   }
 
   @include pc {
@@ -46,7 +48,7 @@ $pc: 1024px; //min
       color: #5d627b;
     }
     .nav-link.active {
-      background-color: #28a746de;
+      @include bg-color;
       color: #fff;
     }
   }
