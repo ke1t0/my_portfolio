@@ -41,13 +41,13 @@
                 <%= link_to "マイページ", user_path(current_user), class: "nav-info" %>
               </li>
               <li class="nav-item">
-                <%= link_to "ログアウト", destroy_user_session_path, class: "nav-info", method: :delete %>
+                <%= link_to "ログアウト", destroy_user_session_path, class: "nav-info", method: :delete, data: { confirm: 'ログアウトしますか？' } %>
               </li>
               <span>
                 <%= form_with url: searches_user_path, method: :get, local: true, class: "search-form" do |f| %>
-                <%= f.text_field :search %>
-                <%= f.submit '検索', class: "btn btn-outline-warning search-user-btn" %>
-              <% end %>
+                  <%= f.text_field :search %>
+                  <%= f.submit '検索', class: "btn btn-outline-warning search-user-btn" %>
+                <% end %>
               </span>
             <% else %>
               <li class="nav-item"><%= link_to "新規登録", new_user_registration_path, class: "nav-info" %></li>
