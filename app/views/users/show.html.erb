@@ -64,7 +64,6 @@
         <% @like_posts.each do |like| %>
           <p><%= link_to like.post.body, post_path(like.post), class: "link-format" %></p>
 
-          <%# いいね総数表示 %>
           <% if like.post.likes.count >= 1 %>
             <span class="heart-icon"><i class="fa fa-heart" style="color: red"></i><%= like.post.likes.count %></span>
             <span class="comment-icon"><i class="far fa-comments" style="color: skyblue"></i><%= like.post.comments.count %></span>
@@ -83,14 +82,12 @@
         <% @comment_posts.each do |comment| %>
           <p><%= link_to comment.text, post_path(comment.post), class: "link-format" %></p>
 
-          <%# いいね総数表示 %>
           <% if comment.post.likes.count >= 1 %>
             <span class="heart-icon"><i class="fa fa-heart" style="color: red"></i><%= comment.post.likes.count %></span>
           <% else %>
             <span class="heart-icon"><i class="fa fa-heart" style="color: #c0c0c0"></i><%= comment.post.likes.count %></span>
           <% end %>
 
-          <%# コメント総数表示 %>
             <span class="comment-icon"><i class="far fa-comments" style="color: skyblue"></i><%= comment.post.comments.count %></span>
           <hr class="partition">
         <% end %>

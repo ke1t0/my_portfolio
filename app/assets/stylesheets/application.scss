@@ -70,6 +70,8 @@ p {
   background-color: rgb(245, 245, 245);
 }
 
+// アラート
+
 #error_explanation {
   color: red;
 
@@ -210,11 +212,6 @@ header {
   }
 }
 
-// .posts_index {
-//   background-color: rgb(245, 245, 245);
-//   padding-bottom: 1rem;
-// }
-
 .title {
   @include tab {
     font-size: 3rem;
@@ -235,7 +232,6 @@ header {
 
   @include sp {
     font-size: 1.6rem;
-    // color: #28a746de;
     color: white;
     font-weight: bold;
     @include bg-color;
