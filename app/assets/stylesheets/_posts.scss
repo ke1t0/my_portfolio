@@ -26,9 +26,7 @@ $pc: 1024px; //min
 // 新規投稿
 .new-post {
   background-color: #fbfbfb;
-  // border-top: solid 5px #28a746de;
   border-top: 5px solid #31dfbf;
-
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
   border-radius: 7px 7px;
   padding: 4rem;
@@ -45,7 +43,6 @@ $pc: 1024px; //min
     width: 80%;
     margin-top: 14rem;
   }
-
 
   .post-new {
     text-align: center;
@@ -170,12 +167,18 @@ $pc: 1024px; //min
     .postcard {
       background-color: #fbfbfb;
       border-top: solid 5px #41dd75;
-      // box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.22);
       box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.22);
       border-radius: 7px 7px;
       overflow: auto;
       margin-bottom: 30px;
       text-align: center;
+      display: block;
+      transition: 0.3s;
+      &:hover {
+        transform: translateY(-7px);
+        box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.22);
+      }
+
       @include sp {
         width: 34%;
         height: 22rem;
