@@ -2,10 +2,13 @@
   <div class="comment-message">
     <%= flash[:danger] %>
   </div>
-  <h2>
+  <span class="user-image">
+    <%= image_tag @post.user.image.url if @post.user.image? %>
+  </span>
+  <span>
     <%= link_to @post.user.name, user_path(@post.user.id), class: "link-format" %>
-  </h2>
-  <p><%= simple_format(@post.body) %></p>
+  </span>
+  <p class="post-details"><%= simple_format(@post.body) %></p>
   <div class="post-image"><%= image_tag @post.image.url if @post.image? %></div>
   <p class="datetime">
     <%= @post.created_at.to_s(:datetime_jp) %>
@@ -13,6 +16,9 @@
 
   <div id="show_like_<%= @post.id %>">
     <%= render "likes/like", post: @post %>
+    <span class="comment-icon">
+      <i class="far fa-comments" style="color: skyblue"></i><%= @post.comments.count %>
+    </span>
   </div>
 
   <% if current_user == @post.user || current_user.admin == true %>
