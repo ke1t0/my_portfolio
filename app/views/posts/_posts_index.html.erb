@@ -7,22 +7,28 @@
   <%# 投稿の一覧表示 %>
     <% posts.each do |post| %>
       <div class="postcard">
+        <div class="post-image">
+          <%= image_tag post.user.image.url if post.user.image? %>
+        </div>
         <div class="post-user-name">
-          <h3><%= link_to post.user.name, user_path(post.user), class: "link-format" %></h3>
+          <h4><%= link_to post.user.name, user_path(post.user), class: "link-format" %></h4>
         </div>
         <div class="post-body">
+          <div id="index_like_<%= post.id %>">
+            <%= render "likes/like", post: post %>
+            <span class="comment-icon">
+              <i class="far fa-comments" style="color: skyblue"></i>
+              <%= post.comments.count %>
+            </span>
+          </div>
           <p><%= simple_format(post.body.truncate(70)) %></p>
-          <%= link_to "詳細", post_path(post) %>
+          <%= link_to "詳細", post_path(post), class: "details-btn" %>
           <% if current_user == post.user || current_user.admin == true %>
             <%= link_to "削除", post_path(post), class: "delete-post-btn", method: :delete, data: { confirm: '削除しますか？' } %>
           <% end %>
-          <div id="index_like_<%= post.id %>">
-            <%= render "likes/like", post: post %>
-          </div>
+          
         </div>
-        <div class="post-image">
-          <%= image_tag post.image.url if post.image? %>
-        </div>
+        
         <p class="datetime">
           <%= post.created_at.to_s(:datetime_jp) %>
         </p>

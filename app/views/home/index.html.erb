@@ -1,16 +1,57 @@
 <div class="home-page">
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-  <h1 class="home-title">tenniction</h1>
+  <h1 class="home-title"><%= image_tag "logomark.png" %></h1>
 
   <h2 class="home-info">
-    タイトルの由来はtennisとconnectionの掛け合わせです。<br>
-    ここはソフトテニスが好きな人たちと繋がる場所です。<br>
-    一緒にテニスをする仲間を見つけたり、情報発信をしたり出来ます。<br>
-    お気に入りの人を見つけてフォローしてみよう！<br>
+    タイトルの由来は<strong>tennis</strong>と<strong>connection</strong>の掛け合わせです。<br>
+    <strong>tenniction</strong>はソフトテニスが好きな人たちと繋がるサービスです。<br>
+    一緒にソフトテニスをする人を見つけたり<br>
+    情報を共有してソフトテニスを更に盛り上げてみませんか？
+
+
   </h2>
   <div class="test-info">
     <h2>テストユーザーID：test@test.mail</h3>
     <h2>パスワード：password</h2>
+  </div>
+
+  <div class="description">
+    <h2>tennictionの特徴</h2>
+    <div class="usage">
+      <div class="contain">
+        <ul>
+          <li class="introduction i1">
+            <%= image_tag "network.png" %>
+            <div class="message">
+              <h3>テニスをしている人と繋がる</h3>
+              <p>投稿やいいねやフォローを通して<br>繋がることができます</p>
+            </div>
+          </li>
+
+          <li class="introduction i2">
+            <%= image_tag "like.png" %>
+            <div class="message">
+              <h3>気になる投稿にはいいね</h3>
+              <p>マイページでいいねした投稿を<br>見れるようになります</p>
+            </div>
+          </li>
+
+          <li class="introduction i3">
+            <%= image_tag "comment.png" %>
+            <div class="message">
+              <h3>投稿にメッセージを送る</h3>
+              <p>気になる投稿にメッセージを送って<br>いろんな人と話すことが出来ます</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <%= link_to new_user_registration_path, class: "new-account-tub" do %>
+        <div>新規登録はこちら</div>
+      <% end %>
+      <%= link_to new_user_session_path, class: "login-tub" do %>
+        <div>ログインはこちら</div>
+      <% end %>
+    </div>
   </div>
 </div>

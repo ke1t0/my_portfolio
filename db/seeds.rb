@@ -33,7 +33,7 @@ User.create!(
 users = User.order(:created_at)
 5.times do
   body = Faker::Lorem.sentence
-  image = open("#{Rails.root}/db/fixtures/sports_tennis.png")
+  image = open("#{Rails.root}/db/fixtures/nature-2576652_1280.jpg")
   users.each{|user| user.posts.create!(body: body, image: image)}
 end
 

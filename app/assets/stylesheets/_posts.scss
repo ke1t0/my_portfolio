@@ -26,7 +26,6 @@ $pc: 1024px; //min
 // 新規投稿
 .new-post {
   background-color: #fbfbfb;
-  border-top: 5px solid #31dfbf;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
   border-radius: 7px 7px;
   padding: 4rem;
@@ -166,7 +165,6 @@ $pc: 1024px; //min
 
     .postcard {
       background-color: #fbfbfb;
-      border-top: solid 5px #41dd75;
       box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.22);
       border-radius: 7px 7px;
       overflow: auto;
@@ -196,6 +194,10 @@ $pc: 1024px; //min
         margin-right: 3rem;
       }
 
+      .post-user-name {
+        padding-top: 1rem;
+      }
+
       .post-body {
         width: 70%;
         margin: 0 auto;
@@ -205,9 +207,16 @@ $pc: 1024px; //min
           font-size: 1.2rem;
         }
 
-        a {
+        .details-btn {
           color: #0dbd9c;
+          padding: 3px;
+          text-decoration: none;
+          background: #f7f7f7;
+          border-left: solid 2px #ff7c5c;
+          border-radius: 2px;
+          color: #ff7c5c;
           font-weight: bold;
+          box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
           &:hover {
             color: #2fc953de;
           }
@@ -233,8 +242,10 @@ $pc: 1024px; //min
       }
 
       .post-image img {
+        margin-top: 1rem;
+        height: 10rem;
         @include sp {
-          width: 8rem;
+          height: 4rem;
         }
         @include tab {
           width: 10rem;
@@ -246,6 +257,7 @@ $pc: 1024px; //min
           font-size: 1.4rem;
         }
         opacity: 0.7;
+        margin-top: 1rem;
         margin-bottom: 0;
       }
     }
@@ -256,7 +268,6 @@ $pc: 1024px; //min
 
 .post-show {
   background-color: #fbfbfb;
-  border-top: solid 5px #31dfbf;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.22);
   border-radius: 7px 7px;
   width: 70%;
@@ -279,6 +290,19 @@ $pc: 1024px; //min
     margin-top: 14rem;
   }
 
+  .user-image img {
+    width: 8rem;
+    margin-right: 3rem;
+  
+    @include sp {
+      width: 6rem;
+    }
+  }
+
+  .post-details {
+    margin-top: 3rem;
+  }
+
   .comment-message {
     color: red;
     @include sp {
@@ -294,6 +318,7 @@ $pc: 1024px; //min
   
   .link-format {
     font-size: 1.6rem;
+    padding-top: 1rem;
     @include tab {
       font-size: 2rem;
     }
@@ -311,6 +336,13 @@ $pc: 1024px; //min
     }
   }
 
+  .comment-icon {
+    font-size: 1.5rem;
+    .far {
+      margin-right: .5rem;
+    }
+  }
+
   .delete-post-btn {
     @include sp {
       font-size: 1.2rem;
@@ -324,13 +356,13 @@ $pc: 1024px; //min
 
   .post-image img {
     @include sp {
-      width: 10rem;
+      width: 12rem;
     }
     @include tab {
       width: 14rem;
     }
     @include pc {
-      width: 20rem;
+      width: 18rem;
     }
   }
 

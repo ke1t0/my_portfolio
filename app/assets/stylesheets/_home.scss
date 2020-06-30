@@ -58,7 +58,7 @@ $pc: 1024px; //min
 
   .home-info {
     color: #444;
-    font-weight: bold;
+    padding-bottom: 4rem;
 
     @include sp {
       font-size: 1.6rem;
@@ -74,10 +74,134 @@ $pc: 1024px; //min
     }
 
     @include pc {
-      font-size: 2.4rem;
+      font-size: 2.2rem;
       margin-top: 6rem;
-      letter-spacing: 0.8rem;
-      line-height: 8rem;
+      letter-spacing: 0.4rem;
+      line-height: 5rem;
+    }
+
+    strong {
+      color: #31dfbf;
+      font-size: 2.6rem;
+    }
+  }
+
+  .test-info {
+    padding-bottom: 1rem;
+  }
+}
+
+.description {
+  padding: 5rem 0;
+  background-color: #fff;
+
+  h2 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    font-weight: bold;
+    font-family: 'Alegreya Sans SC', sans-serif;
+  }
+
+  .usage {
+    h2 {
+      @include font-color;
+      font-size: 5rem;
+      font-weight: bold;
+    }
+
+    .new-account-tub {
+      div {
+        display: inline-block;
+        padding: 1.4rem;
+        margin-top: 6rem;
+        font-size: 2rem;
+        margin-right: 2rem;
+        color: #31dfbf;
+        font-weight: bold;
+        border: 2px solid #31dfbf;
+        border-radius: 7px;
+        transition: 0.4s;
+        &:hover {
+          @include bg-color;
+          color: white;
+        }
+      }
+    }
+
+    .login-tub {
+      position: relative;
+      display: inline-block;
+      font-size: 2em;
+
+      &:before {
+        position: absolute;
+        top: 2.6em;
+        left: 0;
+        content: "";
+        display: inline-block;
+        width: 0;
+        height: 3px;
+        background: #31dfbf;
+        transition: 0.4s;
+      }
+      &:hover:before {
+        width: 100%;
+      }
+      
+      div {
+        display: inline-block;
+        padding: 1.4rem;
+        font-size: 2rem;
+        font-weight: bold;
+        color: #333;
+      }
+    }
+  }
+
+  .contain {
+    ul {
+      display: flex;
+      margin: 0;
+      padding: 0 20px;
+      justify-content: space-around;
+      list-style: none;
+
+      @include sp {
+        display: block;
+      }
+
+      li {
+        flex-basis: 26%;
+        height: 300px;
+        h3 {
+          font-weight: bold;
+          font-size: 1.8rem;
+          padding-top: 2rem;
+
+          @include sp {
+            font-size: 1.6rem;
+          }
+        }
+  
+        img {
+          width: 50%;
+          height: 50%;
+          padding-top: 10px;
+        }
+  
+        p {
+          font-size: 1.6rem;
+          padding-top: 2rem;
+
+          @include sp {
+            font-size: 1.4rem;
+          }
+        }
+
+        @include sp {
+          margin-top: 3rem;
+        }
+      }
     }
   }
 }
