@@ -23,6 +23,7 @@ gem 'mini_magick'
 gem 'faker'
 # gem 'fog-aws'
 gem 'dotenv-rails'
+gem 'sprockets-rails', '2.3.3'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
