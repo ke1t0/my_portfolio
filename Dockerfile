@@ -9,7 +9,6 @@ RUN mkdir /myPortfolio
 WORKDIR /myPortfolio
 COPY Gemfile /myPortfolio/Gemfile
 COPY Gemfile.lock /myPortfolio/Gemfile.lock
-
 RUN gem install bundler -v 1.3.0
 RUN bundle install
 
