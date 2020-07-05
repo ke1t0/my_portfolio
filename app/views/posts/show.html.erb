@@ -14,15 +14,15 @@
     <%= @post.created_at.to_s(:datetime_jp) %>
   </p>
 
-  <div id="show_like_<%= @post.id %>">
+  <span id="show_like_<%= @post.id %>">
     <%= render "likes/like", post: @post %>
-    <span class="comment-icon">
-      <i class="far fa-comments" style="color: skyblue"></i><%= @post.comments.count %>
-    </span>
-  </div>
+  </span>
+  <span class="comment-icon">
+    <i class="far fa-comments" style="color: skyblue"></i><%= @post.comments.count %>
+  </span>
 
   <% if current_user == @post.user || current_user.admin == true %>
-    <%= link_to "削除", post_path(@post), class: "delete-post-btn", method: :delete, data: { confirm: '削除しますか？' } %>
+    <div><%= link_to "削除", post_path(@post), class: "delete-post-btn", method: :delete, data: { confirm: '削除しますか？' } %></div>
   <% end %>
   <hr>
   

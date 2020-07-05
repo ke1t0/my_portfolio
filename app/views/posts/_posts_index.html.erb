@@ -14,13 +14,13 @@
           <h4><%= link_to post.user.name, user_path(post.user), class: "link-format" %></h4>
         </div>
         <div class="post-body">
-          <div id="index_like_<%= post.id %>">
+          <span id="index_like_<%= post.id %>">
             <%= render "likes/like", post: post %>
-            <span class="comment-icon">
-              <i class="far fa-comments" style="color: skyblue"></i>
-              <%= post.comments.count %>
-            </span>
-          </div>
+          </span>
+          <span class="comment-icon">
+            <i class="far fa-comments" style="color: skyblue"></i>
+            <%= post.comments.count %>
+          </span>
           <p><%= simple_format(post.body.truncate(70)) %></p>
           <%= link_to "詳細", post_path(post), class: "details-btn" %>
           <% if current_user == post.user || current_user.admin == true %>
