@@ -110,6 +110,7 @@ $pc: 1024px; //min
 
   @include sp {
     margin-top: 8rem;
+    font-size: 1.1rem;
   }
   
   @include pc {
@@ -178,7 +179,7 @@ $pc: 1024px; //min
       }
 
       @include sp {
-        width: 34%;
+        width: 39%;
         height: 22rem;
         margin-right: 2rem;
         margin-left: 2rem;
@@ -199,7 +200,7 @@ $pc: 1024px; //min
       }
 
       .post-body {
-        width: 70%;
+        width: 80%;
         margin: 0 auto;
         text-align: left;
 
